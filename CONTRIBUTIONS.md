@@ -9,7 +9,9 @@
 - 
 
 ### Stanley Nguyen ( @stanng66 )
-- 
+- Wrote the Problem and Users section in docs/proposal.md
+- Added my role to the Team roles section
+- Help set up the repo and repo structure for the group
 
 ---
 ## M2
