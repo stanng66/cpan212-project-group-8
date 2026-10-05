@@ -3,7 +3,8 @@
 
 ## M1
 ### Melissa Paredes ( mparedes023 )
-- 
+- Worked on the Future Features and Data model draft section in docs/proposal.md
+- Updated the Team Roles section with my assigned role
 
 ### Eton Miller ( @codenoob1738 )
 - 
