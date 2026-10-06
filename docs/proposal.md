@@ -4,19 +4,39 @@
 ## Problem and users
 Fans of mystery and puzzle games rarely get interactive web games experience where they can investigate clues, interrogate suspects, and analyze real museum artwork to solve a murder. Most online web mystery games may feel static, predictable or disconnected from real-world data. Players want a more immersive experience where evidence, suspects, and alibis can be cross-checked against real museum information. 
 
-This app is for puzzle enthusiasts, escape-room fans, and casual gamers who enjoy detective-style games and challenges. It also appeals to art lovers who want a unique way to explore real artwork and galleries from the Art Institute of Chicago. Users can browse artwork, collect evidence, track clues, evaluate suspects’ alibis, and potentially solve a muder using data they collect.
+This app is for puzzle enthusiasts, escape-room fans, and casual gamers who enjoy detective-style games and challenges. It also appeals to art lovers who want a unique way to explore real artwork and galleries from the Art Institute of Chicago. Users can browse artwork, collect evidence, track clues, evaluate suspects’ alibis, and potentially solve a murder using data they collect.
 
 ---
 ## MVP Features
-
-
+1. New users can create a new account with their detective name and password. 
+2. A signed-in user can explore different gallery locations in the museum by selecting from a list of live gallery data from the Art Institute of Chicago.
+3. A signed-in user can perform interactive forensic search actions (such as searching for prints, passwords, or checking for scents) to reveal clues that are hidden in the art’s metadata.
+4. A signed-in user can save clues or text in their Detective Notebook.
+5. A signed-in user can view, edit, or delete the contents of their Detective Notebook.
+6. A signed-in user can submit a final accusation by selecting the person they believe is guilty on the accusation card, this will allow users to stop the investigation once they think they found the murderer.
 ---
 ## Future Features
 
 
 ---
 ## External API
-
+* **API Name:** Art Institue of Chicago API
+* **Documentation:**  https://api.artic.edu/api/v1
+* **Authentication Requirements:** None
+* **Rate Limit:** 60 requests per minute
+* **Feature Using the API Example:** The gallery exploration and artwork investigation features use the Art Institute of Chicago API to retrieve real gallery and artwork information. The artwork information is used as part of the investigation and to connect custom clues to specific artwork.
+* **Example Response:** 
+```json
+{
+  "data": {
+    "id": 2147478068,
+    "title": "Gallery 272",
+    "is_closed": false,
+    "number": "272",
+    "floor": "2"
+  }
+}
+```
 
 ---
 ## Data model draft
@@ -24,15 +44,30 @@ This app is for puzzle enthusiasts, escape-room fans, and casual gamers who enjo
 
 ---
 ## Endpoint list
-| Method | Path | Function | Syccess Status Code | Error Status Codes |
+
+## External Endpoint List
+| Method | Path | Function | Success Status Code | Error Status Codes |
 |--------|------|----------|---------------------|--------------------|
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
+| GET | /api/artwork/:id | Retrieves data belonging to a specific artwork from the Art Institute of Chicago API | 200 | 404, 502 , 504 |
+| GET | /api/galleries | Retrieves gallery locations from the Art Institute of Chicago API | 200 | 502 , 504 |
+
+## Clue Endpoint List
+| Method | Path | Function | Success Status Code | Error Status Codes |
+|--------|------|----------|---------------------|--------------------|
+| GET | /api/clues | Retrieves all clues | 200 | 401, 500 |
+| GET | /api/clues/:id | Retrieves a specific clue  | 200 | 401, 404, 500 |
+| PUT | /api/clues/:id | Updates an existing clue | 200 | 400, 401, 404, 500 |
+| POST | /api/clues | Creates a new custom clue  | 201 | 400,401,500 |
+| DELETE | /api/clues/:id | Deletes a clue | 204 | 401,404,500 |
+
+## Notebook Endpoint List
+| Method | Path | Function | Success Status Code | Error Status Codes |
+|--------|------|----------|---------------------|--------------------|
+| GET | /api/notebook | Retrieves entries from the signed-in user's notebook | 200 | 401, 500 |
+| GET | /api/notebook/:id | Retrieves a specific notebook entry | 200 | 401, 404, 500 |
+| POST | /api/notebook | Creates a new notebook entry | 201 | 400, 401, 500 |
+| PUT | /api/notebook/:id | Updates the contents of an existing notebook entry | 200 | 400, 401, 404, 500 |
+| DELETE | /api/notebook/:id | Deletes a notebook entry | 204 | 401, 404, 500 |
 
 ---
 ## Wireframes
@@ -41,5 +76,5 @@ This app is for puzzle enthusiasts, escape-room fans, and casual gamers who enjo
 --
 ## Team roles
 - Eton Miller: 
-- Melissa Paredes: 
+- Melissa Paredes: Frontend lead
 - Stanley Nguyen: Repo & Pull Requests lead
