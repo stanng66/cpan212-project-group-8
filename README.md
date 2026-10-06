@@ -6,12 +6,14 @@ This repository contains the group project for CPAN-212: Modern Web Technologies
 ---
 ## Group Members
 | Name | Github Username |
+|------|-----------------|
 | Eton Miller | @codenoob1738 |
 | Melissa Paredes | @mparedes023 |
 | Stanley Nguyen | @stanng66 |
 
 ---
 ## Project structure
+```
 cpan212-project-group-8
    api/
    docs/
@@ -21,3 +23,4 @@ cpan212-project-group-8
    .gitignore
    CONTRIBUTIONS.md
    README.md
+```
