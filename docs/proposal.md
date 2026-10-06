@@ -71,7 +71,33 @@ This app is for puzzle enthusiasts, escape-room fans, and casual gamers who enjo
 
 ---
 ## Wireframes
+### Home Page
 
+![Home Page](wireframes/home.png)
+
+### Login / Signup
+
+![Login / Signup](wireframes/login.png)
+
+### Detective Notebook - Entry
+
+![Detective Notebook](wireframes/notebook%20entry.png)
+
+### Detective Notebook - Add Entry
+
+![Add Notebook Entry](wireframes/notebook%20addition.png)
+
+### Accusation Card
+
+![Accusation Card](wireframes/accusation%20card.png)
+
+### Clue Details Card
+
+![Clue Details Card](wireframes/clue%20details%20card.png)
+
+### Gallery Map
+
+![Gallery Map](wireframes/galleries%20map.png)
 
 --
 ## Team roles
