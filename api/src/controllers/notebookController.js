@@ -32,3 +32,21 @@ const notebookEntries=[
     The victim, Bastien, was known for his strict standards and blunt criticism, which often caused tension with staff. Investigators must examine each suspect's alibi, access to the crime scene, and relationship with the victim. One of these six people is responsible for his death.`
     },
 ];
+
+// creating the notebook entry with the title + content from the request body
+function createNotebookEntry(req,res){
+
+    const title=req.body.title;
+    const content=req.body.content;
+
+    // notebook entry object with unique Ids for each one
+    const notebookEntry={
+        id:randomUUID(),
+        title,
+        content
+    };
+    notebookEntries.push(notebookEntry);
+
+    // 201 response success message, notebook entry is created
+    res.status(201).json(notebookEntry);
+}
