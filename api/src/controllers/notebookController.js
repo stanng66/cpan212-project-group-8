@@ -50,3 +50,8 @@ function createNotebookEntry(req,res){
     // 201 response success message, notebook entry is created
     res.status(201).json(notebookEntry);
 }
+
+function getNotebookEntries(req,res){
+    res.json(notebookEntries);  
+}
+export {createNotebookEntry, getNotebookEntries};
