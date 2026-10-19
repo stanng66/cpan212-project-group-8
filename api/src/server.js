@@ -1,5 +1,6 @@
 import express from "express";
-
+import notebookRoutes from "./routes/notebookRoutes.js";
+import clueRoutes from "./routes/clueRoutes.js";
 import { errorHandler } from "./src/middleware/errorHandler.js";
 import { notFound } from "./src/middleware/notFound.js";
 
@@ -7,6 +8,11 @@ const app = express();
 
 app.use(express.json());
 
+// notebook API routes
+app.use("/api/notebook",notebookRoutes);
+
+// Clue API routes
+app.use("/api/clues", clueRoutes);
 
 
 // 404 handler (runs only if no route matched)
