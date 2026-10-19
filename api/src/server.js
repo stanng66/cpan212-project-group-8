@@ -21,6 +21,6 @@ app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT ?? 4000;
-app.listen(TPOR, () => {
+app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
