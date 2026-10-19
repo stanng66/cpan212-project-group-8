@@ -26,7 +26,15 @@ Pull request #1 and pull request #3.
 
 ---
 ## M2
+### Melissa Paredes ( @mparedes023 )
+- 
 
+### Eton Miller ( @codenoob1738 )
+- 
+
+### Stanley Nguyen ( @stanng66 )
+- Item 1: Worked on Node 24 project setup with package.json, .nvmrc, .env.example and contribute to server.js. 
+- Item 5: Created errorHandler.js, notFound.js and httpError.js to handle errors and requests
 
 ---
 ## M3
