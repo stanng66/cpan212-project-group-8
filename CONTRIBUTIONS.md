@@ -30,7 +30,10 @@ Pull request #1 and pull request #3.
 - 
 
 ### Eton Miller ( @codenoob1738 )
-- 
+- Item 2: Created the clue controller with 12 clues and GET handlers to retrieve all clues and individual clues by ID, and created the clue routes.
+- Item 3: Created clueRoutes.js using express.Router() and connected it to the clue controller.
+- Item 7: Created artInstitute.js to connect to the Art Institute of Chicago API, retrieve artwork information, and handle request timeouts and in-memory caching.
+- Item 1: Updated server.js to register the clue routes under /api/clues.
 
 ### Stanley Nguyen ( @stanng66 )
 - Item 1: Worked on Node 24 project setup with package.json, .nvmrc, .env.example and contribute to server.js. 
