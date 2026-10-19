@@ -24,3 +24,9 @@ cpan212-project-group-8
    CONTRIBUTIONS.md
    README.md
 ```
+
+---
+## AI Use
+- If you didn't use any: "No AI tools used."
+
+- If used: list each AI tool used and what you used it for
