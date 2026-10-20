@@ -54,4 +54,73 @@ function createNotebookEntry(req,res){
 function getNotebookEntries(req,res){
     res.json(notebookEntries);  
 }
-export {createNotebookEntry, getNotebookEntries};
+
+// get a notebook entry by its unique id
+function getNotebookEntryById(req, res) {
+    const id = req.params.id;
+
+    const notebookEntry = notebookEntries.find(
+        entry => entry.id === id
+    );
+
+    if (!notebookEntry) {
+        return res.status(404).json({
+            error: {
+                message: "Notebook entry not found."
+            }
+        });
+    }
+
+    res.status(200).json(notebookEntry);
+}
+
+
+// update notebook by posting a notebook entry
+function updateNotebookEntry(req, res) {
+    const id = req.params.id;
+
+    const notebookEntry = notebookEntries.find(
+        entry => entry.id === id
+    );
+
+    // return 404 if the notebook entry does not exist
+    if (!notebookEntry) {
+        return res.status(404).json({
+            error: {
+                message: "Notebook entry not found."
+            }
+        });
+    }
+
+    notebookEntry.title = req.body.title;
+    notebookEntry.content = req.body.content;
+
+    res.status(200).json(notebookEntry);
+}
+
+// delete a notebook entry
+function deleteNotebookEntry(req, res) {
+    const id = req.params.id;
+
+    // find the position of the entry in the array
+    const index = notebookEntries.findIndex(
+        entry => entry.id === id
+    );
+
+    // return 404 if the entry does not exist
+    if (index === -1) {
+        return res.status(404).json({
+            error: {
+                message: "Notebook entry not found."
+            }
+        });
+    }
+
+    // remove the entry from the in memory array
+    notebookEntries.splice(index, 1);
+
+    // 204=the entry was deleted successfully 
+    res.status(204).send();
+}
+
+export {createNotebookEntry, getNotebookEntries, getNotebookEntryById, updateNotebookEntry, deleteNotebookEntry};
