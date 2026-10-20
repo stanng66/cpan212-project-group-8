@@ -14,10 +14,10 @@
 | Variables | Default | What it Controls |
 |-----------|---------|------------------|
 | PORT | 4000 | Port the API runs on |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| baseURL | https://api.artic.edu/api/v1 | URL for the Art Institute of Chicago API endpoints |
+| timeoutMS | "5000" | Sets how long to wait for an API response before timing out |
+| cache_TTL_MS | 300000 | Sets how long retrieved artwork data stays in local cache memory (5 minutes) |
+
 
 ---
 ## Table of endpoints
