@@ -54,4 +54,24 @@ function createNotebookEntry(req,res){
 function getNotebookEntries(req,res){
     res.json(notebookEntries);  
 }
-export {createNotebookEntry, getNotebookEntries};
+
+// get a notebook entry by its unique id
+function getNotebookEntryById(req, res) {
+    const id = req.params.id;
+
+    const notebookEntry = notebookEntries.find(
+        entry => entry.id === id
+    );
+
+    if (!notebookEntry) {
+        return res.status(404).json({
+            error: {
+                message: "Notebook entry not found."
+            }
+        });
+    }
+
+    res.status(200).json(notebookEntry);
+}
+
+export {createNotebookEntry, getNotebookEntries, getNotebookEntryById};
