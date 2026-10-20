@@ -10,7 +10,7 @@
 6. The API should run on http://localhost:4000
 
 ---
-## environment variables
+## Environment variables
 | Variables | Default | What it Controls |
 |-----------|---------|------------------|
 | PORT | 4000 | Port the API runs on |
@@ -23,11 +23,11 @@
 ## Table of endpoints
 | Method | Path | Description |
 |--------|------|-------------|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| GET | /api/notebook | Retrieves all notebook entries. |
+| GET | /api/notebook/:id | Retrieves a specific notebook entry by ID. |
+| POST | /api/notebook | Creates a new notebook entry. |
+| PUT | /api/notebook/:id | Updates an existing notebook entry.|
+| DELETE | /api/notebook/:id | Deletes a notebook entry by its ID. |
 
 ---
 ## Testing
