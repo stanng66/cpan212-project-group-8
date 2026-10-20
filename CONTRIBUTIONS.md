@@ -45,8 +45,11 @@ Pull Requests #11, #13 and merge pull request #12
 ### Stanley Nguyen ( @stanng66 )
 - Item 1: Worked on Node 24 project setup with package.json, .nvmrc, .env.example and contribute to server.js. 
 - Item 5: Created errorHandler.js, notFound.js and httpError.js to handle errors and requests
+- Item 8: Wrote some curl test commands in the api/README.md
 - Item 9: contributed to CONTRIBUTIONS.md with my contributions 
 
+Pull Requests #9, #12, #16, #19, #20 
+Merged pull request #10, #11, #13, #14, #17, #18
 
 ---
 ## M3
