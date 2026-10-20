@@ -1,4 +1,4 @@
-import { HttpError } from "../utils/httpError";
+import { HttpError } from "../utils/httpError.js";
 
 // Express recognizes this as an error handler because of the four parameters
 export function errorHandler(err, req, res, next) {
