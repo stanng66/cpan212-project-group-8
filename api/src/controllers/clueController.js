@@ -160,7 +160,9 @@ export function getClueById(req, res) {
 
     if (!clue) {
         return res.status(404).json({
-            message: "Clue not found"
+            error: {
+                message: "Clue not found"
+            }
         });
     }
 
@@ -168,5 +170,135 @@ export function getClueById(req, res) {
 }
 
 
+function verifyClue(clue) {
+    const errors = [];
 
+    if (!clue || typeof clue !== "object" || Array.isArray(clue)) {
+        return ["Request body must be an object"];
+    }
+
+    if (typeof clue.title !== "string" || clue.title.trim() === "") {
+        errors.push("title is required");
+    }
+
+    if (typeof clue.forensicAction !== "string" ||
+        clue.forensicAction.trim() === "") {
+        errors.push("forensicAction is required");
+    }
+
+    if (typeof clue.description !== "string" ||
+        clue.description.trim() === "") {
+        errors.push("description is required");
+    }
+
+    if (!Number.isInteger(clue.targetAICGalleryId)) {
+        errors.push("targetAICGalleryId must be an integer");
+    }
+
+    if (!Number.isInteger(clue.linkedArtworkId)) {
+        errors.push("linkedArtworkId must be an integer");
+    }
+
+    if (!Number.isInteger(clue.linkedSuspectId)) {
+        errors.push("linkedSuspectId must be an integer");
+    }
+
+    if (typeof clue.targetAICAPIMetadataField !== "string" ||
+        clue.targetAICAPIMetadataField.trim() === "") {
+        errors.push("targetAICAPIMetadataField is required");
+    }
+
+    return errors;
+}
+
+export function createClue(req, res) {
+    const newClue = req.body;
+    const errors = verifyClue(newClue);
+
+    if (errors.length > 0) {
+        return res.status(400).json({
+            error: {
+                message: "Invalid clue data",
+                details: errors
+            }
+        });
+    }
+
+    let newId = 1;
+
+    for (let i = 0; i < clues.length; i++) {
+        if (clues[i].id >= newId) {
+            newId = clues[i].id + 1;
+        }
+    }
+
+    const clue = {
+        id: newId,
+        ...newClue
+    };
+
+    clues.push(clue);
+
+    res.status(201).json(clue);
+}
+
+export function updateClue(req, res) {
+    const id = Number(req.params.id);
+
+    const index = clues.findIndex(function (clue) {
+        return clue.id === id;
+    });
+
+    if (!Number.isInteger(id) || index === -1) {
+        return res.status(404).json({
+            error: {
+                message: "Clue not found"
+            }
+        });
+    }
+
+    const updatedClue = req.body;
+    const errors = verifyClue(updatedClue);
+
+    if (errors.length > 0) {
+        return res.status(400).json({
+            error: {
+                message: "Invalid clue data",
+                details: errors
+            }
+        });
+    }
+
+    clues[index] = {
+        id: id,
+        ...updatedClue
+    };
+
+    res.json(clues[index]);
+}
+
+export function deleteClue(req, res) {
+    const id = Number(req.params.id);
+
+    const index = clues.findIndex(function (clue) {
+        return clue.id === id;
+    });
+
+    if (!Number.isInteger(id) || index === -1) {
+        return res.status(404).json({
+            error: {
+                message: "Clue not found"
+            }
+        });
+    }
+
+    const deletedClue = clues[index];
+
+    clues.splice(index, 1);
+
+    res.json({
+        message: "Clue deleted successfully",
+        data: deletedClue
+    });
+}
 

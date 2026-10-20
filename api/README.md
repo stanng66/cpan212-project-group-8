@@ -57,3 +57,56 @@ On Windows, run these in Git Bash.
    -H "Content-Type: application/json" \  
    -d '{"title":"   ","content":"   "}'  
    Expected status response: 400
+
+6. List all clues (GET /api/clues)
+   curl -X GET http://localhost:4000/api/clues
+   Expected status response: 200
+
+7. Get one clue by ID (GET /api/clues/:id)
+   curl -X GET http://localhost:4000/api/clues/1
+   Expected status response: 200
+
+8. Get a clue that does NOT exist (404)
+   curl -X GET http://localhost:4000/api/clues/9999
+   Expected status response: 404
+
+9. curl -X POST http://localhost:4000/api/clues /
+   -H "Content-Type: application/json" \
+-d '{
+  "title": "Paint Sample Evidence",
+  "forensicAction": "Examine paint",
+  "description": "A paint sample is found near the crime scene.",
+  "footnote": "Check the painting for unusual details.",
+  "locationName": "Gallery 107",
+  "targetAICGalleryId": 2147480090,
+  "linkedArtworkId": 21533,
+  "linkedSuspectId": 1,
+  "targetAICAPIMetadataField": "title"
+}'
+  Expected status response: 201
+
+10. Fails verification (Missing fields)
+    curl -X POST http://localhost:4000/api/clues \
+-H "Content-Type: application/json" \
+-d '{}'
+    Expected status response: 400
+
+11. Update a clue (PUT /api/clues/:id)
+     curl -X PUT http://localhost:4000/api/clues/1 \
+-H "Content-Type: application/json" \
+-d '{
+  "title": "Updated Clue Title",
+  "forensicAction": "Examine paint",
+  "description": "The paint sample may connect a suspect to the crime scene.",
+  "footnote": "Compare the sample with the painting.",
+  "locationName": "Gallery 107",
+  "targetAICGalleryId": 2147480090,
+  "linkedArtworkId": 21533,
+  "linkedSuspectId": 1,
+  "targetAICAPIMetadataField": "title"
+}'
+   Expected status response: 200
+
+12. Delete a clue (DELETE /api/clues/:id)
+    curl -X DELETE http://localhost:4000/api/clues/13
+    Expected status response: 200
