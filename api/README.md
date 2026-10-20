@@ -32,4 +32,28 @@
 ---
 ## Testing
 Use curl commands listed below to test each endpoint.  
-On Windows, run these in Git Bash.
+On Windows, run these in Git Bash.  
+
+1. List all notebooks (GET /api/notebook)  
+   curl -X GET http://localhost:4000/api/notebook  
+   Expected status response: 200
+
+2. Get one notebook by ID (GET /api/notebook/:id)  
+   curl -X GET http://localhost:4000/api/notebook/<valid-id>  
+   Expected status response: 200
+
+3. Get a notebook that does NOT exist (404)  
+   curl -X GET http://localhost:4000/api/notebook/does-not-exist  
+   Expected status response: 404
+
+4. Fails validation (Missing fields)  
+   curl -X POST http://localhost:4000/api/notebook \  
+   -H "Content-Type: application/json" \  
+   -d '{}'  
+   Expected status response: 400
+
+5. ails validation (White space)  
+   curl -X POST http://localhost:4000/api/notebook \  
+   -H "Content-Type: application/json" \  
+   -d '{"title":"   ","content":"   "}'  
+   Expected status response: 400
