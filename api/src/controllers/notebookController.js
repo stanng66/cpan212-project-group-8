@@ -97,4 +97,30 @@ function updateNotebookEntry(req, res) {
 
     res.status(200).json(notebookEntry);
 }
-export {createNotebookEntry, getNotebookEntries, getNotebookEntryById, updateNotebookEntry};
+
+// delete a notebook entry
+function deleteNotebookEntry(req, res) {
+    const id = req.params.id;
+
+    // find the position of the entry in the array
+    const index = notebookEntries.findIndex(
+        entry => entry.id === id
+    );
+
+    // return 404 if the entry does not exist
+    if (index === -1) {
+        return res.status(404).json({
+            error: {
+                message: "Notebook entry not found."
+            }
+        });
+    }
+
+    // remove the entry from the in memory array
+    notebookEntries.splice(index, 1);
+
+    // 204=the entry was deleted successfully 
+    res.status(204).send();
+}
+
+export {createNotebookEntry, getNotebookEntries, getNotebookEntryById, updateNotebookEntry, deleteNotebookEntry};
