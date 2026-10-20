@@ -74,4 +74,27 @@ function getNotebookEntryById(req, res) {
     res.status(200).json(notebookEntry);
 }
 
-export {createNotebookEntry, getNotebookEntries, getNotebookEntryById};
+
+// update notebook by posting a notebook entry
+function updateNotebookEntry(req, res) {
+    const id = req.params.id;
+
+    const notebookEntry = notebookEntries.find(
+        entry => entry.id === id
+    );
+
+    // return 404 if the notebook entry does not exist
+    if (!notebookEntry) {
+        return res.status(404).json({
+            error: {
+                message: "Notebook entry not found."
+            }
+        });
+    }
+
+    notebookEntry.title = req.body.title;
+    notebookEntry.content = req.body.content;
+
+    res.status(200).json(notebookEntry);
+}
+export {createNotebookEntry, getNotebookEntries, getNotebookEntryById, updateNotebookEntry};
