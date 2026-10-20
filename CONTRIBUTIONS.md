@@ -47,6 +47,8 @@ Pull Requests #11, #13 and merge pull request #12
 - Item 5: Created errorHandler.js, notFound.js and httpError.js to handle errors and requests
 - Item 9: contributed to CONTRIBUTIONS.md with my contributions 
 
+Pull Requests #9, #12, #16 
+Merged pull request #10, #11, #13, #14, #17, #18
 
 ---
 ## M3
