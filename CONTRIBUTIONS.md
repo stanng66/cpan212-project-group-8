@@ -42,6 +42,9 @@ Pull Requests #11, #13 and merge pull request #12
 - Item 1: Updated server.js to register the clue routes under /api/clues.
 - Item 9: contributed to CONTRIBUTIONS.md with my contributions 
 
+Pull Requests #8, #10, #14, #17, #21 
+Merge pull request #16, #20, #23, #24
+
 ### Stanley Nguyen ( @stanng66 )
 - Item 1: Worked on Node 24 project setup with package.json, .nvmrc, .env.example and contribute to server.js. 
 - Item 5: Created errorHandler.js, notFound.js and httpError.js to handle errors and requests
