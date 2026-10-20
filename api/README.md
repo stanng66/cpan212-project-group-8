@@ -28,6 +28,11 @@
 | POST | /api/notebook | Creates a new notebook entry. |
 | PUT | /api/notebook/:id | Updates an existing notebook entry.|
 | DELETE | /api/notebook/:id | Deletes a notebook entry by its ID. |
+| GET | /api/clues | Retrieves all clues. |
+| GET | /api/clues/:id | Retrieves a specific clue by ID. |
+| POST | /api/clues | Creates a new clue. |
+| PUT | /api/clues/:id | Updates an existing clue. |
+| DELETE | /api/clues/:id | Deletes a clue by its ID. |
 
 ---
 ## Testing
@@ -70,8 +75,8 @@ On Windows, run these in Git Bash.
    curl -X GET http://localhost:4000/api/clues/9999
    Expected status response: 404
 
-9. curl -X POST http://localhost:4000/api/clues /
-   -H "Content-Type: application/json" \
+9.curl -X POST http://localhost:4000/api/clues \
+-H "Content-Type: application/json" \
 -d '{
   "title": "Paint Sample Evidence",
   "forensicAction": "Examine paint",
@@ -92,7 +97,7 @@ On Windows, run these in Git Bash.
     Expected status response: 400
 
 11. Update a clue (PUT /api/clues/:id)
-     curl -X PUT http://localhost:4000/api/clues/1 \
+     curl -X PUT http://localhost:4000/api/clues/13 \
 -H "Content-Type: application/json" \
 -d '{
   "title": "Updated Clue Title",
