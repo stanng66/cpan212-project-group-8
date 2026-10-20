@@ -15,7 +15,7 @@
 |-----------|---------|------------------|
 | PORT | 4000 | Port the API runs on |
 | baseURL | https://api.artic.edu/api/v1 | URL for the Art Institute of Chicago API endpoints |
-| timeoutMS | "5000" | Sets how long to wait for an API response before timing out |
+| timeoutMS | 5000 | Sets how long to wait for an API response before timing out |
 | cache_TTL_MS | 300000 | Sets how long retrieved artwork data stays in local cache memory (5 minutes) |
 
 
@@ -39,44 +39,59 @@
 Use curl commands listed below to test each endpoint.  
 On Windows, run these in Git Bash.  
 
-1. List all notebooks (GET /api/notebook)  
+```bash
+#1. List all notebooks (GET /api/notebook)  
    curl -X GET http://localhost:4000/api/notebook  
    Expected status response: 200
+```
 
-2. Get one notebook by ID (GET /api/notebook/:id)  
-   curl -X GET http://localhost:4000/api/notebook/<valid-id>  
+```bash
+#2. Get one notebook by ID (GET /api/notebook/:id)  
+   curl -X GET http://localhost:4000/api/notebook/paste-uuid-here
    Expected status response: 200
+```
 
-3. Get a notebook that does NOT exist (404)  
+```bash
+#3. Get a notebook that does NOT exist (404)  
    curl -X GET http://localhost:4000/api/notebook/does-not-exist  
    Expected status response: 404
+```
 
-4. Fails validation (Missing fields)  
+```bash
+#4. Fails validation (Missing fields)  
    curl -X POST http://localhost:4000/api/notebook \  
    -H "Content-Type: application/json" \  
    -d '{}'  
    Expected status response: 400
+```
 
-5. ails validation (White space)  
-   curl -X POST http://localhost:4000/api/notebook \  
-   -H "Content-Type: application/json" \  
-   -d '{"title":"   ","content":"   "}'  
+```bash
+#5. Fails validation (White space)  
+curl -i -X POST http://localhost:4000/api/notebook \
+  -H "Content-Type: application/json" \
+  -d '{"title":" ","content":" "}'
    Expected status response: 400
+```
 
-6. List all clues (GET /api/clues)
+```bash
+#6. #List all clues (GET /api/clues)
    curl -X GET http://localhost:4000/api/clues
    Expected status response: 200
+```
 
-7. Get one clue by ID (GET /api/clues/:id)
+```bash
+#7. Get one clue by ID (GET /api/clues/:id)
    curl -X GET http://localhost:4000/api/clues/1
    Expected status response: 200
 
-8. Get a clue that does NOT exist (404)
+```bash
+#8. Get a clue that does NOT exist (404)
    curl -X GET http://localhost:4000/api/clues/9999
    Expected status response: 404
-
-9.curl -X POST http://localhost:4000/api/clues \
--H "Content-Type: application/json" \
+```
+```bash
+#9. curl -X POST http://localhost:4000/api/clues /
+   -H "Content-Type: application/json" \
 -d '{
   "title": "Paint Sample Evidence",
   "forensicAction": "Examine paint",
@@ -89,15 +104,18 @@ On Windows, run these in Git Bash.
   "targetAICAPIMetadataField": "title"
 }'
   Expected status response: 201
-
-10. Fails verification (Missing fields)
+```
+```bash
+#10. Fails verification (Missing fields)
     curl -X POST http://localhost:4000/api/clues \
 -H "Content-Type: application/json" \
 -d '{}'
     Expected status response: 400
+```
 
-11. Update a clue (PUT /api/clues/:id)
-     curl -X PUT http://localhost:4000/api/clues/13 \
+```bash
+#11. Update a clue (PUT /api/clues/:id)
+     curl -X PUT http://localhost:4000/api/clues/1 \
 -H "Content-Type: application/json" \
 -d '{
   "title": "Updated Clue Title",
@@ -111,7 +129,47 @@ On Windows, run these in Git Bash.
   "targetAICAPIMetadataField": "title"
 }'
    Expected status response: 200
+```
 
-12. Delete a clue (DELETE /api/clues/:id)
+```bash
+#12. Delete a clue (DELETE /api/clues/:id)
     curl -X DELETE http://localhost:4000/api/clues/13
     Expected status response: 200
+```
+
+```bash
+#13. Delete a notebook entry (DELETE /api/notebook/:id)
+    curl -X DELETE http://localhost:4000/api/notebook/paste-UUID-here
+    Expected status response: 204
+```
+
+```bash
+#14. Create a notebook entry (POST /api/notebook)
+curl -i -X POST http://localhost:4000/api/notebook \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Test Entry","content":"Testing notebook creation."}'
+  Expected status response: 201
+```
+
+```bash
+#15. Update a notebook entry (PUT /api/notebook/:id)
+curl -i -X PUT http://localhost:4000/api/notebook/PASTE-ACTUAL-UUID-HERE \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Updated Entry","content":"Testing notebook updates."}'
+  Expected status response: 200
+```
+
+```bash
+#16. Update a notebook entry that does NOT exist (PUT /api/notebook/:id)
+curl -i -X PUT http://localhost:4000/api/notebook/does-not-exist \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Updated Entry","content":"Updated content."}'
+  Expected status response: 404
+```
+
+```bash
+#17. Delete a notebook entry that does NOT exist (DELETE /api/notebook/:id)
+curl -i -X DELETE http://localhost:4000/api/notebook/does-not-exist
+
+Expected status response: 404
+```
