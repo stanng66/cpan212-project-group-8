@@ -10,24 +10,24 @@
 6. The API should run on http://localhost:4000
 
 ---
-## environment variables
+## Environment variables
 | Variables | Default | What it Controls |
 |-----------|---------|------------------|
 | PORT | 4000 | Port the API runs on |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| baseURL | https://api.artic.edu/api/v1 | URL for the Art Institute of Chicago API endpoints |
+| timeoutMS | "5000" | Sets how long to wait for an API response before timing out |
+| cache_TTL_MS | 300000 | Sets how long retrieved artwork data stays in local cache memory (5 minutes) |
+
 
 ---
 ## Table of endpoints
 | Method | Path | Description |
 |--------|------|-------------|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| GET | /api/notebook | Retrieves all notebook entries. |
+| GET | /api/notebook/:id | Retrieves a specific notebook entry by ID. |
+| POST | /api/notebook | Creates a new notebook entry. |
+| PUT | /api/notebook/:id | Updates an existing notebook entry.|
+| DELETE | /api/notebook/:id | Deletes a notebook entry by its ID. |
 
 ---
 ## Testing
