@@ -28,6 +28,11 @@
 | POST | /api/notebook | Creates a new notebook entry. |
 | PUT | /api/notebook/:id | Updates an existing notebook entry.|
 | DELETE | /api/notebook/:id | Deletes a notebook entry by its ID. |
+| GET | /api/clues | Retrieves all clues. |
+| GET | /api/clues/:id | Retrieves a specific clue by ID. |
+| POST | /api/clues | Creates a new clue. |
+| PUT | /api/clues/:id | Updates an existing clue. |
+| DELETE | /api/clues/:id | Deletes a clue by its ID. |
 
 ---
 ## Testing
