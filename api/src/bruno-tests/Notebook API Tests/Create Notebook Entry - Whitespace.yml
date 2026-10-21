@@ -1,0 +1,22 @@
+info:
+  name: Create Notebook Entry - Whitespace
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:4000/api/notebook
+  body:
+    type: json
+    data: |-
+      {
+        "title": " ",
+        "content": " "
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

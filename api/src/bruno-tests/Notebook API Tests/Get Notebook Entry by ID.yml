@@ -1,0 +1,18 @@
+info:
+  name: Get Notebook Entry by ID
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: http://localhost:4000/api/notebook/e986209d-4d1e-44a3-a981-9ae496385844
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
