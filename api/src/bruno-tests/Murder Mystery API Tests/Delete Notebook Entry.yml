@@ -5,7 +5,7 @@ info:
 
 http:
   method: DELETE
-  url: http://localhost:4000/api/notebook/paste-uuid-here
+  url: http://localhost:4000/api/notebook/e986209d-4d1e-44a3-a981-9ae496385844
   auth: inherit
 
 settings:

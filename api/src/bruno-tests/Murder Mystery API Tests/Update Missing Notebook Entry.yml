@@ -6,6 +6,13 @@ info:
 http:
   method: PUT
   url: http://localhost:4000/api/notebook/does-not-exist
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Updated Entry",
+        "content": "Testing a missing entry."
+      }
   auth: inherit
 
 settings:

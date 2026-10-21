@@ -6,6 +6,13 @@ info:
 http:
   method: PUT
   url: http://localhost:4000/api/notebook/paste-uuid-here
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Hi, the title should change of the notebook entry if this worked. ",
+        "content": "Testing notebook updates...."
+      }
   auth: inherit
 
 settings:
