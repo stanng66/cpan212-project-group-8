@@ -1,0 +1,29 @@
+info:
+  name: Update Clue
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: http://localhost:4000/api/clues/13
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Updated Clue Title",
+        "forensicAction": "Examine paint",
+        "description": "The paint sample may connect a suspect to the crime scene.",
+        "footnote": "Compare the sample with the painting.",
+        "locationName": "Gallery 107",
+        "targetAICGalleryId": 2147480090,
+        "linkedArtworkId": 21533,
+        "linkedSuspectId": 1,
+        "targetAICAPIMetadataField": "title"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,29 @@
+info:
+  name: Create Clue
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: http://localhost:4000/api/clues
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Paint Sample Evidence",
+        "forensicAction": "Examine paint",
+        "description": "A paint sample is found near the crime scene.",
+        "footnote": "Check the painting for unusual details.",
+        "locationName": "Gallery 107",
+        "targetAICGalleryId": 2147480090,
+        "linkedArtworkId": 21533,
+        "linkedSuspectId": 1,
+        "targetAICAPIMetadataField": "title"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
