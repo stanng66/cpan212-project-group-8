@@ -1,34 +1,67 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+:root { /* Created for consitency and for easier adjustments when needed */
+    /* Colour Palette */
+    --clr-primary: #7a0000;   /*  */ 
+    --clr-secondary: #355e3b; /*  */
+    --clr-bg-page: #efefef;  /*  */
+    --clr-bg-panel: #fafac8;   /*  */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    /* Text Colours */
+    --clr-text-main: #222222;
+    --clr-text-soft: #3a2f3a; /* slightly purple tone */
+    --clr-text-white: #ffffff;
+    --clr-text-muted: #6f5f6f;
 
-html {
-  height: 100%;
+    /* Font Sizes */
+    --fs-xsm: 0.75rem;
+    --fs-sm: 0.9rem;
+    --fs-base: 1rem;
+    --fs-md: 1.2rem;
+    --fs-lg: 1.8rem;
+    --fs-xl: 2.5rem;
+
+    /* Font Weights */
+    --fw-normal: 400;
+    --fw-bold: 700;
+
+    /* UI Colours */
+    --clr-border: #dddddd;
+    --clr-input-border: #cccccc;
+    --clr-bg-white: #FAFAFA;
+
+    /* Dark Mode */
+    --clr-dark-bg: #1a1a1a;
+    --clr-dark-surface: #2a2a2a;
+    --clr-dark-header: #222222;
+    --clr-dark-border: #444444;
+
+    /* Shadows */
+    --shadow-xs: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.2);
+
+    /* Border Radius */
+    --radius-sm: 5px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 20px;
+
+    /* Spacing */
+    --space-xs: 5px;
+    --space-sm: 10px;
+    --space-md: 20px;
+    --space-lg: 30px;
+    --space-xl: 60px;
+
+    /* Transitions */
+    --transition: all 0.3s ease;
+
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -42,8 +75,31 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.header {
+    padding: 1rem;
+    background-color: var(--clr-bg-panel);
+    color: var(--clr-text-main);
+    border-bottom: 2px solid var(--clr-border);
+}
+
+.header h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--clr-bg-panel);
+    border: 1px solid var(--clr-dark-bg);
+    padding: 0.75rem 1rem;
+}
+
+.header-info p {
+    margin: 0;
+}
+
+.navigation {
+    background-color: var(--clr-bg-panel);
 }
