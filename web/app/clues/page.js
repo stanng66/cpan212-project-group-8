@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 
 export default async function CluesPage() {
@@ -29,16 +28,24 @@ export default async function CluesPage() {
                 <p>No clues available.</p>
             )}
 
-            {clues.map((clue) => (
-                <div className="clue-card" key={clue.id}>
-                    <h2>{clue.title}</h2>
-                    <p>{clue.description}</p>
+            <div className="clues-grid">
+                {clues.map((clue) => (
+                    <div className="clue-card" key={clue.id}>
+                        <p className="clue-Number">
+                            CLUE #{clue.id}
+                        </p>
+                        <h2>{clue.title}</h2>
 
-                    <Link href={"/clues/" + clue.id}>
-                        View Details
-                    </Link>
-                </div>
-            ))}
+                        <p className="clue-description">
+                            {clue.description}
+                        </p>
+
+                        <Link href={"/clues/" + clue.id}>
+                            Investigate Clue
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
