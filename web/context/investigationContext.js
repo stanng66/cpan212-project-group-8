@@ -3,19 +3,19 @@
 import { createContext, useContext, useState } from "react";
 
 // Create the context that will be shared between pages
-const NotebookContext = createContext(null);
+const InvestigationContext = createContext(null);
 
-// Function helps makes notebook state available to the app
-export function NotebookProvider({ children }) {
+// Function provides shared investigation state to the application
+export function InvestigationProvider({ children }) {
     // Stores the clues the detective has saved.
     const [savedClues, setSavedClues] = useState([]);
 
-    // Add a clue to the notebook
+    // Save a clue for later review in the notebook
     const saveClue = (clue) => {
         setSavedClues((previousClues) => {
             // Prevent the same clue from being saved more than once
             const alreadySaved = previousClues.some(
-                (savedClue) => savedClue.id === clue.id
+                (savedClue) => savedClue.id === clue.id || savedClue.title === clue.title
             );
 
             if (alreadySaved) {
@@ -26,6 +26,12 @@ export function NotebookProvider({ children }) {
         });
     };
 
+    const isClueSaved = (clueId) => {
+        return savedClues.some(
+            (clue) => clue.id === clueId
+        );
+    };
+
     // Remove a clue from the notebook using its ID
     const removeClue = (clueId) => {
         setSavedClues((previousClues) =>
@@ -33,22 +39,24 @@ export function NotebookProvider({ children }) {
         );
     };
 
+    const savedClueCount = savedClues.length;
+
     // Make the state and functions available to other components
     return (
-        <NotebookContext.Provider
-            value={{ savedClues, saveClue, removeClue }}
+        <InvestigationContext.Provider
+            value={{ savedClues, savedClueCount, saveClue, removeClue, isClueSaved }}
         >
             {children}
-        </NotebookContext.Provider>
+        </InvestigationContext.Provider>
     );
 }
 
-// Custom hook for accessing the notebook context
-export function useNotebook() {
-    const context = useContext(NotebookContext);
+// Custom hook for accessing the investigation context
+export function useInvestigation() {
+    const context = useContext(InvestigationContext);
 
     if (!context) {
-        throw new Error("useNotebook must be used inside a NotebookProvider");
+        throw new Error("useInvestigation must be used inside an InvestigationProvider");
     }
     return context;
 }
