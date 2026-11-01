@@ -7,7 +7,8 @@ export default async function ClueDetailsPage({ params }) {
     let error = "";
 
     try {
-        const response = await fetch("http://localhost:4000/api/clues/" + id);
+        const apiUrl = process.env.API_ORIGIN;
+        const response = await fetch(apiUrl + "/api/clues/" + id);
 
         if (response.ok) {
             clue = await response.json();
