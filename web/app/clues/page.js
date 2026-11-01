@@ -10,7 +10,7 @@ export default async function CluesPage() {
 
         if (response.ok) {
             const result = await response.json();
-            clues = result.data;
+            clues = Array.isArray(result.data) ? result.data : [];
         } else {
             error = "Could not load clues.";
         }

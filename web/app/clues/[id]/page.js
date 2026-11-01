@@ -23,10 +23,11 @@ export default async function ClueDetailsPage({ params }) {
         error = "Could not connect to the server.";
     }
 
-    if (error) {
+    if (error || !clue) {
         return (
-            <div className="clues-page">
-                <p>{error}</p>
+            <div className="clues-page clue-details-page">
+                <h1>Clue Details</h1>
+                <p>{error || "No Clue Information Available."}</p>
                 <Link href="/clues">Back to Clues</Link>
             </div>
         );
@@ -49,7 +50,7 @@ export default async function ClueDetailsPage({ params }) {
     }
 
     return (
-        <div className="clues-page">
+        <div className="clues-page clue-details-page">
             <h1>{clue.title}</h1>
 
             <div className="clue-details">
@@ -66,6 +67,10 @@ export default async function ClueDetailsPage({ params }) {
 
                 {artworkError && <p>{artworkError}</p>}
 
+                {!artwork && !artworkError && (
+                    <p>No artwork information available.</p>
+                )}
+
                 {artwork && (
                     <div className="artwork-card">
                         <div className="artwork-image-section">
@@ -76,9 +81,11 @@ export default async function ClueDetailsPage({ params }) {
                                     className="clue-artwork-image"
                                 />
                             ) : (
+
                                 <p>Artwork image unavailable.</p>
                             )}
                         </div>
+
                         <h3>{artwork.title}</h3>
                         <p><strong>Artist:</strong> {artwork.artist_display}</p>
                         <p><strong>Date:</strong> {artwork.date_display}</p>
