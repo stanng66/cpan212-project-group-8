@@ -449,3 +449,26 @@ a {
     height: 220px;
     object-fit: contain;
 }
+
+/* Clue Navigation */
+.clue-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.clue-navigation a {
+    background-color: var(--clr-primary);
+    color: var(--clr-text-white);
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.clue-navigation a:hover {
+    background-color: var(--clr-secondary);
+}

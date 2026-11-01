@@ -88,7 +88,23 @@ export default async function ClueDetailsPage({ params }) {
                 )}
             </div>
 
-            <Link href="/clues">Back to Clues</Link>
+            <div className="clue-navigation">
+                {clue.id > 1 && (
+                    <Link href={"/clues/" + (clue.id - 1)}>
+                        Previous Clue
+                    </Link>
+                )}
+
+                <Link href="/clues">
+                    Back to Clues
+                </Link>
+
+                {clue.id < 12 && (
+                    <Link href={"/clues/" + (clue.id + 1)}>
+                        Next Clue
+                    </Link>
+                )}
+            </div>
         </div>
     );
 }
