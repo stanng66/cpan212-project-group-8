@@ -315,8 +315,16 @@ export async function getArtworkById(req, res) {
 
     try {
         const artwork = await getArtwork(id);
+        const artworkData = artwork.data;
 
-        res.json(artwork.data);
+        if (artworkData.image_id && artwork.config?.iiif_url) {
+            artworkData.image_url =
+                artwork.config.iiif_url + "/" +
+                artworkData.image_id +
+                "/full/843,/0/default.jpg";
+        }
+
+        res.json(artworkData);
     } catch (error) {
         console.error(error);
 
