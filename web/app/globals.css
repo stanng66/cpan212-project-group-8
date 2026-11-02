@@ -480,7 +480,8 @@ a {
     }
 
     .painting-panel {
-        padding: 0;
+        padding: 0 30px 0 50px;
+        min-width: 0;
     }
 }
 
@@ -519,4 +520,59 @@ a {
     outline: 2px solid var(--clr-primary);
     outline-offset: 2px;
 }
+
+/* Artwork Display */
+.painting-panel h2 {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    color: var(--clr-primary);
+    margin-bottom: 20px;
+}
+
+.painting-content {
+    width: 100%;
+}
+
+.investigation-artwork-image {
+    display: block;
+    width: 100%;
+    height: 430px;
+    object-fit: contain;
+    box-sizing: border-box;
+    border: 4px solid #444;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.painting-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.painting-content strong {
+    color: var(--clr-primary);
+}
+
+/* Artwork Footnote */
+.painting-footnote {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f7f0e6;
+    border-left: 4px solid var(--clr-primary);
+}
+
+.painting-footnote h3 {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    color: var(--clr-primary);
+    margin-bottom: 10px;
+}
+
+.painting-footnote p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
 

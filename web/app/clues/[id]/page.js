@@ -79,56 +79,56 @@ export default async function ClueDetailsPage({ params }) {
                         <InvestigationDashboard clue={clue} />
 
                     </div>
-                </div>
 
-                <section className="investigation-panel painting-panel">
-                    <h2>{artwork?.title}</h2>
+                    <section className="investigation-panel painting-panel">
+                        <h2>{artwork?.title}</h2>
 
-                    {artworkError && <p>{artworkError}</p>}
+                        {artworkError && <p>{artworkError}</p>}
 
-                    {artwork ? (
-                        <div className="painting-content">
-                            <img
-                                src={"/assets/artworks/" + clue.linkedArtworkId + ".jpg"}
-                                alt={artwork.title}
-                                className="investigation-artwork-image"
-                            />
+                        {artwork ? (
+                            <div className="painting-content">
+                                <img
+                                    src={"/assets/artworks/" + clue.linkedArtworkId + ".jpg"}
+                                    alt={artwork.title}
+                                    className="investigation-artwork-image"
+                                />
 
-                            <p><strong>Artist:</strong> {artwork.artist_display}</p>
-                            <p><strong>Date:</strong> {artwork.date_display}</p>
-                            <p><strong>Medium:</strong> {artwork.medium_display}</p>
+                                <p><strong>Artist:</strong> {artwork.artist_display}</p>
+                                <p><strong>Date:</strong> {artwork.date_display}</p>
+                                <p><strong>Medium:</strong> {artwork.medium_display}</p>
 
-                            <div className="painting-footnote">
-                                <h3>Footnote:</h3>
-                                <p>{clue.footnote}</p>
+                                <div className="painting-footnote">
+                                    <h3>Footnote:</h3>
+                                    <p>{clue.footnote}</p>
+                                </div>
                             </div>
-                        </div>
-                    ) : (
-                        !artworkError && <p>No artwork information available.</p>
-                    )}
-                </section>
-            </div>
-
-            <div className="investigation-footer">
-                <div className="investigation-navigation">
-                    {clue.id > 1 && (
-                        <Link href={"/clues/" + (clue.id - 1)}>
-                            Previous Clue
-                        </Link>
-                    )}
-
-                    <Link href="/clues">Back to Clues</Link>
-
-                    {clue.id < 12 && (
-                        <Link href={"/clues/" + (clue.id + 1)}>
-                            Next Clue
-                        </Link>
-                    )}
+                        ) : (
+                            !artworkError && <p>No artwork information available.</p>
+                        )}
+                    </section>
                 </div>
 
-                <Link href="/notebook" className="notebook-link">
-                    Add Note to Notebook +
-                </Link>
+                <div className="investigation-footer">
+                    <div className="investigation-navigation">
+                        {clue.id > 1 && (
+                            <Link href={"/clues/" + (clue.id - 1)}>
+                                Previous Clue
+                            </Link>
+                        )}
+
+                        <Link href="/clues">Back to Clues</Link>
+
+                        {clue.id < 12 && (
+                            <Link href={"/clues/" + (clue.id + 1)}>
+                                Next Clue
+                            </Link>
+                        )}
+                    </div>
+
+                    <Link href="/notebook" className="notebook-link">
+                        Add Note to Notebook +
+                    </Link>
+                </div>
             </div>
         </div>
     );
