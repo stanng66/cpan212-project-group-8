@@ -74,16 +74,11 @@ export default async function ClueDetailsPage({ params }) {
                 {artwork && (
                     <div className="artwork-card">
                         <div className="artwork-image-section">
-                            {artwork.image_url ? (
                                 <img
-                                    src={artwork.image_url}
+                                    src={"/assets/artworks/" + clue.linkedArtworkId + ".jpg"}
                                     alt={artwork.title}
                                     className="clue-artwork-image"
                                 />
-                            ) : (
-
-                                <p>Artwork image unavailable.</p>
-                            )}
                         </div>
 
                         <h3>{artwork.title}</h3>
