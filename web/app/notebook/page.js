@@ -51,6 +51,31 @@ export default function NotebookPage() {
         );
     }
 
+    // user clicks on delete button, instead of automatically deleting, confirmation is needed first
+    const deleteEntry = async (id) => {
+        const confirmDelete = window.confirm(
+            'Are you sure you want to delete this notebook entry?'
+        );
+
+        if (!confirmDelete) {
+            return;
+        }
+        try {
+            const response = await fetch(`/api/notebook/${id}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete notebook entry.');
+            }
+
+            setEntries((previousEntries) =>
+                previousEntries.filter((entry) => entry.id !== id)
+            );
+        } catch (err) {
+            setError(err.message);
+        }
+    };
     return (
 
         <div className={styles.notebookPage}>
@@ -77,6 +102,9 @@ export default function NotebookPage() {
                                 <p className={styles.location}>Location: {entry.location}</p>
                             </div>
                             <p>{entry.content}</p>
+                            <button className={styles.deleteButton} onClick={() => deleteEntry(entry.id)}>
+                                Delete
+                            </button>
                             {/* now every entry will show the full content  */}
                             {/* <div className={styles.viewEntry}>
                             <Link href={`/notebook/${entry.id}`}>
@@ -87,6 +115,7 @@ export default function NotebookPage() {
                     ))}
                 </section>
             )}
+            
         </div>
     );
 }

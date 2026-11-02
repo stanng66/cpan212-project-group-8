@@ -110,7 +110,15 @@
 .createButton:hover {
     background-color: #30632d;
 }
+.deleteButton {
+    background-color: #580000;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+}
 
+.deleteButton:hover {
+    background-color: #ff0000;
+}
 
 /* .viewEntry{
     display: flex;
