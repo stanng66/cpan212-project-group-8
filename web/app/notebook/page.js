@@ -102,9 +102,14 @@ export default function NotebookPage() {
                                 <p className={styles.location}>Location: {entry.location}</p>
                             </div>
                             <p>{entry.content}</p>
-                            <button className={styles.deleteButton} onClick={() => deleteEntry(entry.id)}>
-                                Delete
-                            </button>
+                            <div className={styles.editDeleteContainer}>
+                                <button className={styles.deleteButton} onClick={() => deleteEntry(entry.id)}>
+                                    Delete
+                                </button>
+                                <Link className={styles.editButton} href={`/notebook/${entry.id}/edit`}>
+                                    Edit
+                                </Link>
+                            </div>
                             {/* now every entry will show the full content  */}
                             {/* <div className={styles.viewEntry}>
                             <Link href={`/notebook/${entry.id}`}>
