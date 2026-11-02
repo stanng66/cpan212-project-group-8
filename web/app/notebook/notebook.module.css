@@ -1,0 +1,97 @@
+/* notebook container */
+.notebookPage {
+    min-height: 100vh;
+    padding: 50px;
+    background-color: #f4eee2;
+    color: #30271f;
+    border: 4px black solid;
+}
+
+/* entries styling*/
+.title {
+    font-size: 36px;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+    font-family: var(--font-winston);
+}
+
+.description {
+    color: #030303;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-family: var(--font-winston);
+
+}
+.notebookWelcomeContainer{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+.notebookEntries {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+
+}
+
+.notebookEntry {
+    background-color: #e6ddcb;
+    padding: 30px;
+    gap:20px;
+    border: 1px solid #d8cbb8;
+
+
+}
+
+.notebookEntry h2 {
+    font-family: var(--font-winston);
+    
+    margin-bottom: 12px;
+}
+
+.notebookEntry p {
+    line-height: 1.6;
+    margin-bottom: 18px;
+    letter-spacing:  0em;;
+    font-family: Verdana, sans-serif;
+
+}
+
+
+
+.notebookEntry a {
+    color: #805b37;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.notebookEntry a:hover {
+    text-decoration: underline;
+}
+
+/* buttons */
+.createButton {
+    display: inline-block;
+    background-color: #002a02;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    align-items: center;
+    height: 45px;
+    font-family: var(--font-winston);
+}
+
+.createButton:hover {
+    background-color: #30632d;
+}
+
+
+.viewEntry{
+    display: flex;
+    justify-content: flex-end;
+    font-family: var(--font-winston);
+
+}
