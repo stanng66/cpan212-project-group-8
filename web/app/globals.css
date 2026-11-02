@@ -483,3 +483,40 @@ a {
         padding: 0;
     }
 }
+
+/* Investigate Further */
+.investigation-sidebar .investigation-panel + .investigation-panel {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #555;
+}
+
+.investigation-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.investigation-action-button {
+    background: none;
+    border: none;
+    color: var(--clr-text-main);
+    font-family: Georgia, serif;
+    font-size: 18px;
+    text-align: left;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.investigation-action-button:hover {
+    background-color: var(--clr-primary);
+    color: white;
+}
+
+.investigation-action-button:focus-visible {
+    outline: 2px solid var(--clr-primary);
+    outline-offset: 2px;
+}
+
