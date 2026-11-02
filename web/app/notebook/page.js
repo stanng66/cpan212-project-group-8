@@ -74,11 +74,12 @@ export default function NotebookPage() {
                         <div key={entry.id} className={styles.notebookEntry}>
                             <h2>{entry.title}</h2>
                             <p>{entry.content}</p>
-                            <div className={styles.viewEntry}>
+                            {/* now every entry will show the full content  */}
+                            {/* <div className={styles.viewEntry}>
                             <Link href={`/notebook/${entry.id}`}>
                                 View Entry
                             </Link>
-                            </div>
+                            </div> */}
                         </div>
                     ))}
                 </section>
