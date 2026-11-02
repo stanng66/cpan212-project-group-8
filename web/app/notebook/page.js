@@ -72,7 +72,10 @@ export default function NotebookPage() {
                 <section className={styles.notebookEntries}>
                     {entries.map((entry) => (
                         <div key={entry.id} className={styles.notebookEntry}>
-                            <h2>{entry.title}</h2>
+                            <div className={styles.titleLocationContainer}>
+                                <h2>{entry.title}</h2>
+                                <p className={styles.location}>Location: {entry.location}</p>
+                            </div>
                             <p>{entry.content}</p>
                             {/* now every entry will show the full content  */}
                             {/* <div className={styles.viewEntry}>
