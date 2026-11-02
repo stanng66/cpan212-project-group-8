@@ -19,6 +19,7 @@ const clues = [
         forensicAction: "Search for hidden writing",
         description: "A hidden message contains a sequence of bird names. Decoding the sequence reveals the first password for a protected museum access log file. The file requires a second verification code before its contents can be viewed.",
         footnote: "Pay attention to the birds and written details. Could a sequence or pattern of names hide a message?",
+        locationName: "Gallery 107",
         targetAICGalleryId: 2147480090,
         linkedArtworkId: 187515,
         linkedSuspectId: 7,
