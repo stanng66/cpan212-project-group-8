@@ -1,9 +1,10 @@
 import Navigation from "./Navigation";
+import { useInvestigation } from "../../context/investigationContext";
 
 export default function Header() {
-    const detectiveName = "Detective";
-    const caseStatus = "Investigating";
-    /* const { detectiveName, caseStatus } = useCaseContext(); */   // Uncomment when item 7 (context) is implemented
+    // const detectiveName = "Detective";
+    // const caseStatus = "Investigating";
+    const { detectiveName, caseStatus } = useInvestigation();    // Uncomment when item 7 (context) is implemented
     
   return (
     <header className="header">
