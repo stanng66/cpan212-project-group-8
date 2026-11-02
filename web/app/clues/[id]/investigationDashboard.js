@@ -1,34 +1,37 @@
 "use client";
 
 import { useState } from "react";
+import { useInvestigation } from "../../../context/investigationContext";
 
 export default function InvestigationDashboard({ clue }) {
     const [showClue, setShowClue] = useState(false);
+    const { saveClue, savedClueCount } = useInvestigation();
 
     const investigationActions = [
-        "Search for Physical Evidence",
+        "Search For Physical Evidence",
         "Examine Hidden Messages",
         "Analyze Traces and Residue",
         "Review Records and Statements"
     ];
 
-    const clueActions = {
-        1: "Search for Physical Evidence",
-        2: "Examine Hidden Messages",
-        3: "Analyze Traces and Residue",
-        4: "Search for Physical Evidence",
-        5: "Examine Hidden Messages",
-        6: "Analyze Traces and Residue",
-        7: "Examine Hidden Messages",
-        8: "Search for Physical Evidence",
-        9: "Review Records and Statements",
-        10: "Search for Physical Evidence",
-        11: "Analyze Traces and Residue",
-        12: "Examine Hidden Messages"
-    };
+    // const clueActions = {
+    //     1: "Search For Physical Evidence",
+    //     2: "Examine Hidden Messages",
+    //     3: "Analyze Traces and Residue",
+    //     4: "Search For Physical Evidence",
+    //     5: "Examine Hidden Messages",
+    //     6: "Analyze Traces and Residue",
+    //     7: "Examine Hidden Messages",
+    //     8: "Search For Physical Evidence",
+    //     9: "Review Records and Statements",
+    //     10: "Search For Physical Evidence",
+    //     11: "Analyze Traces and Residue",
+    //     12: "Examine Hidden Messages"
+    // };
 
     function investigate(action) {
-        if (action === clueActions[clue.id]) {
+        if (action === clue.forensicAction) {
+            saveClue(clue);
             setShowClue(true);
         }
     }
@@ -37,6 +40,8 @@ export default function InvestigationDashboard({ clue }) {
         <>
             <section className="investigation-panel">
                 <h2>Investigate Further</h2>
+
+                <p>Saved clues: {savedClueCount}</p> {/* Used temporarily to display the number of clues saved in the investigation context */}
 
                 <div className="investigation-actions">
                     {investigationActions.map((action) => (
