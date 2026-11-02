@@ -1,5 +1,8 @@
 import Link from "next/link";
 import InvestigationDashboard from "./investigationDashboard";
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import ArtworkDetails from "./artworkDetails";
 
 export default async function ClueDetailsPage({ params }) {
     const { id } = await params;
@@ -7,8 +10,7 @@ export default async function ClueDetailsPage({ params }) {
 
     let clue = null;
     let error = "";
-    let artwork = null;
-    let artworkError = "";
+    let clueNotFound = false;
 
     try {
         const response = await fetch(apiUrl + "/api/clues/" + id);
@@ -16,12 +18,16 @@ export default async function ClueDetailsPage({ params }) {
         if (response.ok) {
             clue = await response.json();
         } else if (response.status === 404) {
-            error = "Clue not found.";
+            clueNotFound = true;
         } else {
             error = "Could not load clue.";
         }
     } catch (err) {
         error = "Could not connect to the server.";
+    }
+
+    if (clueNotFound) {
+        notFound();
     }
 
     if (error || !clue) {
@@ -32,22 +38,6 @@ export default async function ClueDetailsPage({ params }) {
                 <Link href="/clues">Back to Clues</Link>
             </div>
         );
-    }
-
-    if (clue.linkedArtworkId) {
-        try {
-            const response = await fetch(
-                apiUrl + "/api/clues/artwork/" + clue.linkedArtworkId
-            );
-
-            if (response.ok) {
-                artwork = await response.json();
-            } else {
-                artworkError = "Could not load artwork.";
-            }
-        } catch (err) {
-            artworkError = "Could not connect to the server.";
-        }
     }
 
     const galleries = ["Gallery 107", "Gallery 143", "Gallery 206", "Gallery 272"];
@@ -80,32 +70,15 @@ export default async function ClueDetailsPage({ params }) {
 
                     </div>
 
-                    <section className="investigation-panel painting-panel">
-                        <h2>{artwork?.title}</h2>
-
-                        {artworkError && <p>{artworkError}</p>}
-
-                        {artwork ? (
-                            <div className="painting-content">
-                                <img
-                                    src={"/assets/artworks/" + clue.linkedArtworkId + ".jpg"}
-                                    alt={artwork.title}
-                                    className="investigation-artwork-image"
-                                />
-
-                                <p><strong>Artist:</strong> {artwork.artist_display}</p>
-                                <p><strong>Date:</strong> {artwork.date_display}</p>
-                                <p><strong>Medium:</strong> {artwork.medium_display}</p>
-
-                                <div className="painting-footnote">
-                                    <h3>Footnote:</h3>
-                                    <p>{clue.footnote}</p>
-                                </div>
-                            </div>
-                        ) : (
-                            !artworkError && <p>No artwork information available.</p>
-                        )}
-                    </section>
+                    <Suspense fallback={
+                        <section className="investigation-panel painting-panel">
+                            <h2>Artwork Information</h2>
+                            <p>Loading artwork information...</p>
+                        </section>
+                    }>
+                        <ArtworkDetails clue={clue} />
+                    </Suspense>
+                    
                 </div>
 
                 <div className="investigation-footer">
