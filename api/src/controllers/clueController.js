@@ -1,3 +1,5 @@
+import { getArtwork } from "../services/artInstitute.js";
+
 const clues = [
     {
         id: 1,
@@ -300,5 +302,35 @@ export function deleteClue(req, res) {
         message: "Clue deleted successfully",
         data: deletedClue
     });
+}
+
+export async function getArtworkById(req, res) {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id) || id <= 0) {
+        return res.status(400).json({
+            error: { message: "Invalid artwork ID" }
+        });
+    }
+
+    try {
+        const artwork = await getArtwork(id);
+        const artworkData = artwork.data;
+
+        if (artworkData.image_id && artwork.config?.iiif_url) {
+            artworkData.image_url =
+                artwork.config.iiif_url + "/" +
+                artworkData.image_id +
+                "/full/843,/0/default.jpg";
+        }
+
+        res.json(artworkData);
+    } catch (error) {
+        console.error(error);
+
+        res.status(502).json({
+            error: { message: "Could not load artwork from AIC" }
+        });
+    }
 }
 

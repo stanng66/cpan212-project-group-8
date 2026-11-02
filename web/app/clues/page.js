@@ -5,11 +5,12 @@ export default async function CluesPage() {
     let error = "";
 
     try {
-        const response = await fetch("http://localhost:4000/api/clues");
+        const apiUrl = process.env.API_ORIGIN;
+        const response = await fetch(apiUrl + "/api/clues");
 
         if (response.ok) {
             const result = await response.json();
-            clues = result.data;
+            clues = Array.isArray(result.data) ? result.data : [];
         } else {
             error = "Could not load clues.";
         }
