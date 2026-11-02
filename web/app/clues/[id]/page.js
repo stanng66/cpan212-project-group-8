@@ -53,40 +53,36 @@ export default async function ClueDetailsPage({ params }) {
     const galleries = ["Gallery 107", "Gallery 143", "Gallery 206", "Gallery 272"];
 
     return (
-        <div className="investigation-dashboard">
-            <div className="investigation-header">
-                <h1>Investigation Dashboard</h1>
+        <div className="investigation-page">
 
-                <div className="investigation-case-info">
-                    <span>Case: Murder at the Museum</span>
-                    <span>Case Status: Investigating</span>
-                </div>
-            </div>
+            <h1 className="investigation-title">Investigation Dashboard</h1>
 
-            <div className="investigation-layout">
-                <div className="investigation-sidebar">
-                    <section className="investigation-panel">
-                        <h2>Current Location</h2>
+            <div className="investigation-dashboard">
+                <div className="investigation-layout">
+                    <div className="investigation-sidebar">
+                        <section className="investigation-panel">
+                            <h2>Current Location</h2>
 
-                        <div className="gallery-list">
-                            {galleries.map((gallery) => (
-                                <div className="gallery-item" key={gallery}>
-                                    <span className="gallery-marker">
-                                        {clue.locationName === gallery ? "[X]" : "[ ]"}
-                                    </span>
+                            <div className="gallery-list">
+                                {galleries.map((gallery) => (
+                                    <div className="gallery-item" key={gallery}>
+                                        <span className="gallery-marker">
+                                            {clue.locationName === gallery ? "[X]" : "[ ]"}
+                                        </span>
 
-                                    <span>{gallery}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
+                                        <span>{gallery}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
 
-                    <InvestigationDashboard clue={clue} />
+                        <InvestigationDashboard clue={clue} />
 
+                    </div>
                 </div>
 
                 <section className="investigation-panel painting-panel">
-                    <h2>Painting Details</h2>
+                    <h2>{artwork?.title}</h2>
 
                     {artworkError && <p>{artworkError}</p>}
 
@@ -98,14 +94,12 @@ export default async function ClueDetailsPage({ params }) {
                                 className="investigation-artwork-image"
                             />
 
-                            <h3>{artwork.title}</h3>
-
                             <p><strong>Artist:</strong> {artwork.artist_display}</p>
                             <p><strong>Date:</strong> {artwork.date_display}</p>
                             <p><strong>Medium:</strong> {artwork.medium_display}</p>
 
                             <div className="painting-footnote">
-                                <h3>Footnote</h3>
+                                <h3>Footnote:</h3>
                                 <p>{clue.footnote}</p>
                             </div>
                         </div>
@@ -133,7 +127,7 @@ export default async function ClueDetailsPage({ params }) {
                 </div>
 
                 <Link href="/notebook" className="notebook-link">
-                    Detective's Notebook
+                    Add Note to Notebook +
                 </Link>
             </div>
         </div>
