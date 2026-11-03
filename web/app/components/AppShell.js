@@ -5,15 +5,15 @@ import Header from "./Header";
 
 export default function AppShell({ children }) {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isPublicPage = pathname === "/" || pathname === "/login" || pathname === "/register";
 
   return (
     <>
-      {!isHomePage && <Header />}
+      {!isPublicPage && <Header />}
 
       <main
         className={
-          isHomePage
+          isPublicPage
             ? "page-container home-container"
             : "page-container"
         }
