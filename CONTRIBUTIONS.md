@@ -59,6 +59,15 @@ Merged pull request #10, #11, #13, #14, #17, #18, #22, #25
 ### Melissa Paredes ( @mparedes023 )
 
 ### Eton Miller ( @codenoob1738 )
+- Item 2: Created the Clues listing page and clue details page, allowing users to view all clues and investigate individual clues by ID. Added navigation between clues, gallery location indicators and links to the Clues and Notebook pages.
+- Items 3 and 4: Connected the Next.js frontend to the Express API using the API_ORIGIN environment variable to retrieve clue information.
+- Item 6: Added loading states using React Suspense, error handling for failed API requests, empty-state messages, and not-found.js page for invalid clue IDs.
+- Item 7: Created investigationDashboard.js to display forensic investigation actions and save discovered clues using the shared investigation context.
+- Item 8: Created artworkDetails.js to retrieve and display Art Institute of Chicago artwork information through the Express API, including artwork titles, artists, dates, mediums, and investigation footnotes.
+Item 9: Updated CONTRIBUTIONS.md to document my M3 contributions.
+
+Pull Requests #33, #35, #38, #39
+Merged pull requests #32, #34, #36, #37, #41, #42
 
 ### Stanley Nguyen ( @stanng66 )
 - Item 1: Setup the Next.js project using week 6 the create-next-app command. Plus files and folder structure for web/ folder.
