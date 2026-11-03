@@ -22,7 +22,8 @@ const characters = [
         While his logistics work is flawless, his cold, blunt demeanor means he lacks interpersonal skills and alienates colleagues.
         Regularly clashes with the restoration department over tools and methods.
         Highly combative during private gallery acquisitions.
-        Keeps an explicit, running log of staff infractions.`
+        Keeps an explicit, running log of staff infractions.`,
+        borderColor: "#ff1900",
     },
     {
         name: "Julian Croft",
@@ -38,6 +39,8 @@ const characters = [
         Exhibits high levels of stress regarding recent external financial audits and asset evaluations.
         Recent internal flags raised regarding unverified acquisition paperwork.
         Has repeatedly clashed with Bastien over administrative authority boundaries.`,
+        borderColor: "#8da5c7",
+
     },
     {
         name: "James Donavan",
@@ -52,6 +55,8 @@ const characters = [
         Highly protective of the artwork but completely dismissive of pretentious curatorial staff.
         Keeps his head down and strictly avoids office politics and administrative conflicts.
         Formally reprimanded and asked to work on his interpersonal skills and friendly demeanor.`,
+        borderColor: "#1eff00",
+
     },
     {
         name: "Arthur Boucher",
@@ -68,7 +73,9 @@ const characters = [
         Views the building as a complex machine of environmental controls and safety regulations.
         Highly protective of his operations budget and physical staff.
         Deeply frustrated by the creative chaos of the curatorial team.
-        Worries that Julian's administrative and paperwork lapses will lead to a catastrophic operational failure.`
+        Worries that Julian's administrative and paperwork lapses will lead to a catastrophic operational failure.`,
+        borderColor: "#ffdd00",
+
     },
     {
         name: "Chloe Sterling",
@@ -87,6 +94,9 @@ const characters = [
         Paces constantly when stressed or waiting around.
         Takes any critique of the gallery layout as a personal attack.
         Coworkers believe she deliberately transfers oil paint onto gallery walls to sabotage other exhibits.`,
+        borderColor: "#bb00ff",
+
+
     },
     {
         name: "Dr. Elena Rostova",
@@ -102,7 +112,9 @@ const characters = [
         image: "/assets/characterImages/elena.jpeg",
         characterNotes: `Highly territorial over her restoration wing and access to experimental solvent formulas.
         Formally reprimanded by Curatorial staff last month for unauthorized testing on active exhibits.
-        Believes modern art administrators fail to respect the deep science of cultural preservation.`
+        Believes modern art administrators fail to respect the deep science of cultural preservation.`,
+        borderColor: "#ff8400",
+
     },
     {
         name: "Marcus Brennan",
@@ -121,6 +133,8 @@ const characters = [
         Has an unusually extensive knowledge of the museum's security systems and restricted collection records.
         Recently involved in several tense disagreements with Bastien over missing digital documentation and unauthorized changes to collection files.
         Keeps personal backups of sensitive museum records, claiming it is simply good data management practice.`,
+        borderColor: "#ff0099",
+
     }
 ];
 
@@ -140,6 +154,7 @@ export default function CharactersCard() {
                         src={character.image}
                         alt={character.name}
                         className={styles.profileImage}
+                        
                     />
 
 
@@ -154,7 +169,7 @@ export default function CharactersCard() {
                     <h3>JOB TITLE</h3>
                     <p>{character.jobTitle}</p>
 
-                    <h3>DEPARTMENT</h3>
+                    <h1 className={styles.department}>DEPARTMENT</h1>
                     <p>{character.department}</p>
                 </div>
 
@@ -163,8 +178,7 @@ export default function CharactersCard() {
                 <div className={styles.profileInformationContainer}>
                     {/* fingerprint on the top right of each profile */}
                     {/* <div className={styles.fingerprintTitleContainer}> */}
-                        
-                
+                    <h6 className={styles.confidential}>CONFIDENTIAL EMPLOYEE RECORD</h6>
                         <h2>
                             Musée des Beaux-Arts de l'Éclipse
                             <br />
@@ -191,7 +205,7 @@ export default function CharactersCard() {
             <div className={styles.characterImages}>
                 {characters.map((item, index) => (
                     <button
-                    
+
                         key={item.characterID}
 
                         onClick={() => setSelectedCharacter(index)}
@@ -200,7 +214,10 @@ export default function CharactersCard() {
                                 ? styles.selectedImage
                                 : styles.characterButton
                         }
+                        style={{ borderColor: item.borderColor }}       
+
                     >
+
 
 
                         <img src={item.image} alt={item.name} />
