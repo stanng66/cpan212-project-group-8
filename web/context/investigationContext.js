@@ -39,12 +39,18 @@ export function InvestigationProvider({ children }) {
         );
     };
 
+    const [detectiveName, setDetectiveName] =
+        useState("Detective");
+
+    const [caseStatus, setCaseStatus] =
+        useState("Investigating");
+
     const savedClueCount = savedClues.length;
 
     // Make the state and functions available to other components
     return (
         <InvestigationContext.Provider
-            value={{ savedClues, savedClueCount, saveClue, removeClue, isClueSaved }}
+            value={{ savedClues, savedClueCount, saveClue, removeClue, isClueSaved, detectiveName, setDetectiveName, caseStatus, setCaseStatus }}
         >
             {children}
         </InvestigationContext.Provider>

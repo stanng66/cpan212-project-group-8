@@ -392,14 +392,419 @@ a {
     opacity: 0.85;
 } 
 
+/* Investigation Dashboard */
+.investigation-page {
+    width: 100%;
+    padding: 20px 30px 50px;
+    font-family: Georgia, serif;
+}
+
+.investigation-title {
+    font-size: 36px;
+    color: var(--clr-primary);
+    margin-bottom: 20px;
+}
+
+.investigation-dashboard {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #fffef3;
+    border: 4px solid black;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0 #cccccc;
+    overflow: hidden;
+}
+
+.investigation-dashboard h2,
+.investigation-dashboard h3,
+.investigation-dashboard strong {
+    color: var(--clr-primary);
+}
+
+
+/* Dashboard Layout */
+.investigation-layout {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 30px;
+}
+
+.investigation-sidebar {
+    padding: 0 30px 0 10px;
+    border-right: 1px solid #555;
+}
+
+.painting-panel {
+    padding: 0 30px 0 50px;
+    min-width: 0;
+}
+
+/* Current Location */
+.investigation-panel h2 {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    color: var(--clr-primary);
+    margin-bottom: 20px;
+}
+
+.gallery-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.gallery-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 19px;
+}
+
+.gallery-marker {
+    color: var(--clr-primary);
+    font-weight: bold;
+}
+
+
 @media (max-width: 900px) {
-    .clues-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .investigation-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .investigation-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #555;
+        padding: 0 0 30px;
+    }
+
+    .painting-panel {
+        padding: 0 30px 0 50px;
+        min-width: 0;
     }
 }
 
-@media (max-width: 600px) {
-    .clues-grid {
-        grid-template-columns: 1fr;
-    }
+/* Investigate Further */
+.investigation-sidebar .investigation-panel + .investigation-panel {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #555;
+}
+
+.investigation-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.investigation-action-button {
+    background: none;
+    border: none;
+    color: var(--clr-text-main);
+    font-family: Georgia, serif;
+    font-size: 18px;
+    text-align: left;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.investigation-action-button:hover {
+    background-color: var(--clr-primary);
+    color: white;
+}
+
+.investigation-action-button:focus-visible {
+    outline: 2px solid var(--clr-primary);
+    outline-offset: 2px;
+}
+
+/* Artwork Display */
+.painting-panel h2 {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    color: var(--clr-primary);
+    margin-bottom: 20px;
+}
+
+.painting-content {
+    width: 100%;
+}
+
+.investigation-artwork-image {
+    display: block;
+    width: 100%;
+    height: 430px;
+    object-fit: contain;
+    box-sizing: border-box;
+    border: 4px solid #444;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.painting-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.painting-content strong {
+    color: var(--clr-primary);
+}
+
+/* Artwork Footnote */
+.painting-footnote {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f7f0e6;
+    border-left: 4px solid var(--clr-primary);
+}
+
+.painting-footnote h3 {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    color: var(--clr-primary);
+    margin-bottom: 10px;
+}
+
+.painting-footnote p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Clue Popup Section */
+.clue-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.clue-popup {
+    background-color: #1c1c1c;
+    border: 3px solid var(--clr-primary);
+    border-radius: 10px;
+    padding: 35px;
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.clue-popup h2 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    color: #e34545;
+    margin-bottom: 20px;
+}
+
+.clue-popup p {
+    font-size: 19px;
+    color: #90d690;
+    line-height: 1.6;
+}
+
+.clue-popup button {
+    background-color: var(--clr-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin-top: 25px;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.clue-popup button:hover {
+    opacity: 0.85;
+}
+
+/* Investigation Dashboard Footer */
+.investigation-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 35px 30px;
+}
+
+.investigation-navigation {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.investigation-footer a {
+    color: var(--clr-primary);
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.investigation-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Notebook Link */
+.notebook-link {
+    font-size: 20px !important;
+    font-style: italic;
+}
+
+
+.clue-navigation a:hover {
+    background-color: var(--clr-secondary);
+}
+
+/* ==================== */
+/* Login/Register Pages */
+/* ==================== */
+.auth-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-lg);
+    background-color: var(--clr-bg-page);
+}
+
+.auth-card {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    min-height: 650px;
+    background-color: var(--clr-bg-white);
+    border: 4px solid #111111;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-title, .register-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: "Bodoni MT", Didot, serif;
+    font-size: 2rem;
+    color: var(--clr-text-main);
+}
+
+/* ==================== */
+/* Login Form */
+/* ==================== */
+.login-form {
+    width: 100%;
+    max-width: 450px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.login-username-label,
+.login-password-label {
+    font-size: var(--fs-sm);
+}
+
+.login-username-input,
+.login-password-input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #666666;
+
+    background-color: #f5f5f5;
+}
+
+.login-button {
+    width: fit-content;
+
+    margin: 20px auto 0;
+
+    padding: 12px 28px;
+
+    border: 2px solid #111111;
+
+    border-radius: 6px;
+
+    background-color: #7a0000;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.login-button:hover {
+    background-color: var(--clr-secondary);
+}
+
+/* ==================== */
+/* Register Form */
+/* ==================== */
+.register-form {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.register-username-label, .register-password-label {
+    font-size: var(--fs-sm);
+}
+
+.register-username-input, .register-password-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #666666;
+    background-color: #f5f5f5;
+}
+
+.register-button {
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 12px 28px;
+    border: 2px solid #111111;
+    border-radius: 6px;
+    background-color: #7a0000;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.register-button:hover {
+    background-color: var(--clr-secondary);
+}
+
+/* ==================== */
+/* Footer Text */
+/* ==================== */
+.auth-project {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    font-size: var(--fs-lg);
+    color: var(--clr-text-muted);
+    font-family: "Bodoni MT", serif;
 }

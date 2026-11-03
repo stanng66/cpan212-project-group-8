@@ -1,5 +1,6 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// import Image from "next/image";
+// import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -22,12 +23,14 @@ export default function HomePage() {
           <div className="home-auth-options">
             <div className="home-auth-login">
               <span>Returning Detective?</span>
-              <button
-                type="button"
-                className="home-auth-button"
-              >
-                Login
-              </button>
+              <Link href="/login">
+                <button
+                  type="button"
+                  className="home-auth-button"
+                >
+                  Login
+                </button>
+              </Link>
             </div>
 
             <span
@@ -37,12 +40,14 @@ export default function HomePage() {
 
             <div className="home-auth-register">
               <span>New to the Investigation?</span>
-              <button
-                type="button"
-                className="home-auth-button home-register-button"
-              >
-                Register
-              </button>
+              <Link href="/register">
+                <button
+                  type="button"
+                  className="home-auth-button home-register-button"
+                >
+                  Register
+                </button>
+              </Link>
             </div>
           </div>
         </div>
