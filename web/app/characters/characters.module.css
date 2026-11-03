@@ -1,0 +1,99 @@
+
+.characterPage {
+    background-color: #fffefd;
+    padding: 30px;
+    color: black;
+    min-height: 80vh;
+    
+    
+    font-family:'Courier New', Courier, monospace;
+}
+
+.characterCard {
+
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 25px;
+    border: 4px solid black;
+    padding: 25px;
+
+    margin: 25px auto;
+    max-width: 1000px;
+}
+
+.profileSide {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.profileImage {
+    width: 180px;
+
+    height: 215px;
+    object-fit: cover;
+    /* border: 2px solid black; */
+    margin-bottom: 10px;
+}
+
+.profileSide h3,
+.profileInformationContainer h3 {
+    margin-top: 12px;
+    margin-bottom: 3px;
+    font-weight:900;
+}
+
+.profileInformationContainer h2 {
+    margin-bottom: 15px;
+    font-weight:1000;
+}
+
+.profileDetails p {
+    margin-bottom: 10px;
+}
+
+.education,
+.characterNotes {
+    white-space: pre-line;
+    line-height: 1.5;
+}
+
+.characterNotes {
+    border: 1px solid black;
+    padding: 15px;
+
+    min-height: 300px;
+
+}
+
+.characterImages {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px auto;
+
+
+    flex-wrap: wrap;
+}
+
+.characterButton,
+.selectedImage {
+    padding: 0;
+    background: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.characterImages img {
+    display: block;
+    width: 100px;
+    height: 115px;
+    object-fit: cover;
+
+}
+/* pic moves up a bit, maybe add a box shadow later or change the shape to a circle */
+.selectedImage {
+    /* border: 3px solid black; */
+
+    transform: translateY(-10px);
+}
