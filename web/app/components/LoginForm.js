@@ -1,4 +1,14 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 export default function LoginForm() {
+    const router = useRouter();
+    const handleLogin = (event) => {
+        event.preventDefault();
+        router.push("/clues");
+    };
+
     return (
         <section className="auth-page">
             <div className="auth-card">
@@ -7,7 +17,7 @@ export default function LoginForm() {
                     Welcome Back, Detective
                 </h1>
 
-                <form id="loginForm" className="login-form">
+                <form id="loginForm" className="login-form" onSubmit={handleLogin}>
                     <label htmlFor="loginUsername" className="login-username-label"> Detective Username</label>
 
                     <input 
