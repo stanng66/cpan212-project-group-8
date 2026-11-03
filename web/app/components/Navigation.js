@@ -9,7 +9,7 @@ export default function Navigation() {
       <Link href="/notebook">Notebook</Link>
 
       {/* Future pages, will update */}
-      <Link href="/">Gallery Map</Link>   
+      <Link href="/gallery">Gallery Map</Link>   
       <Link href="/">Accusation</Link>
       <Link href="/">Exit</Link>
     </nav>

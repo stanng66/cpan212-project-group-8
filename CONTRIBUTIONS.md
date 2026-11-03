@@ -56,7 +56,19 @@ Merged pull request #10, #11, #13, #14, #17, #18, #22, #25
 
 ---
 ## M3
+### Melissa Paredes ( @mparedes023 )
 
+### Eton Miller ( @codenoob1738 )
+
+### Stanley Nguyen ( @stanng66 )
+- Item 1: Setup the Next.js project using week 6 the create-next-app command. Plus files and folder structure for web/ folder.
+- Item 2: Work on Homepage, header and navigation, login and register page, and gallery page. 
+- Item 4: Rewrote the next.config.mjs and web/.env.example
+- Item 7: Worked on shared state in the context/investigationContext.js and a README.md  explaining context and components
+- Item 9: Wrote my contribtution in the CONTRIBUTIONS.md, and the "how to run" steps for both frontend and api in the root README.md
+
+Pull Request #31, #32, #34, #37, #41  
+Merged pull request #33, #38, #39, #40
 
 --- 
 ## M4
