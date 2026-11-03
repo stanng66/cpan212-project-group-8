@@ -1,6 +1,7 @@
 function validateNotebookEntry(req,res,next){
     const {
         title,
+        location,
         content
     } = req.body;
 
@@ -14,7 +15,11 @@ function validateNotebookEntry(req,res,next){
             error:"Add a Title to this Notebook Entry."
         });
     }
-
+    if (typeof location !== "string" || location.trim() === "") {
+        return res.status(400).json({
+            error: "Add a Location to this Notebook Entry."
+        });
+    }
     if (typeof content !=="string"||content.trim()===""){
         return res.status(400).json({
             error:"Add Content to this Notebook Entry."
