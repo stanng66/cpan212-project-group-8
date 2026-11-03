@@ -187,12 +187,13 @@ a {
 }
 
 .home-title {
-    margin-bottom: var(--space-lg);
+    margin-bottom: 30px;
     color: var(--clr-text-main);
     font-family: "Bodoni MT", "Times New Roman", serif;
-    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-size: clamp(2rem, 4.0vw, 3rem); 
     font-weight: var(--fw-normal);
-    line-height: 1.05;
+    line-height: 1.0;
+    text-align:center;
 }
 
 .home-title span {
@@ -202,9 +203,15 @@ a {
 .home-description {
     max-width: 550px;
     margin-bottom: var(--space-xl);
-    color: var(--clr-text-soft);
+    color: black;
     font-size: var(--fs-md);
     line-height: 1.7;
+    text-align:center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    margin-bottom: 30px;
 }
 
 .home-panel {
@@ -220,23 +227,16 @@ a {
     padding: var(--space-xl) var(--space-md) var(--space-lg);
 }
 
-.home-title {
-    color: var(--clr-text-soft);
-    font-family: "Bodoni MT", Didot, "Times New Roman", serif;
-    font-size: var(--fs-xl);
-    font-weight: var(--fw-normal);
-    text-align: center;
-    margin: 0 0 55px;
-}
-
 .home-auth-options {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: var(--space-md);
+    
 }
 
 .home-auth-login, .home-auth-register {
+    
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -245,6 +245,9 @@ a {
     font-size: var(--fs-base);
     font-weight: var(--fw-normal);
     white-space: nowrap;
+    justify-content:center;
+    margin: 0 auto;
+    
 }
 
 .home-auth-button {

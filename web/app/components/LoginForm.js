@@ -50,7 +50,7 @@ export default function LoginForm() {
                 </form>
 
                 <div className="auth-project">
-                    PROJECT TITLE
+                    The Curator's Last Shift
                 </div>
             </div>
         </section>
