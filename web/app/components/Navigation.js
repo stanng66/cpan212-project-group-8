@@ -5,6 +5,7 @@ export default function Navigation() {
     <nav className="navigation">
       <Link href="/">Home</Link>
       <Link href="/clues">Clues</Link>
+      <Link href="/characters">Character Profiles</Link> 
       <Link href="/notebook">Notebook</Link>
 
       {/* Future pages, will update */}
