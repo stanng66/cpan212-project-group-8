@@ -16,10 +16,45 @@ This repository contains the group project for CPAN-212: Modern Web Technologies
 ```
 cpan212-project-group-8
    api/
+      src/
+         bruno-tests/
+         controllers/
+         middleware/
+         routes/
+         services/
+         utils/
+         validators/
+         server.js
+      .env.example
+      package-lock.json
+      package.json
+      README.md
    docs/
       wireframes/
       proposal.md
    web/
+      app/
+         characters/
+         clues/
+            [id]/
+         components/
+         gallery/
+         login/
+         notebook/
+         register/
+      context/
+      public/
+         assets/
+            artworks/
+            characterImages/
+            map/
+            fonts/
+      .env.example
+      .gitignore
+      next.config.mjs
+      package-lock.json
+      package.json
+      README.md
    .gitignore
    CONTRIBUTIONS.md
    README.md
@@ -52,8 +87,6 @@ cpan212-project-group-8
 |-----------|---------|------------------|
 | PORT | 3000 | Port the next.js runs on |
 | PORT | 4000 | Port the API runs on |
-|  |  |  |
-|  |  |  |
 
 ---
 ## AI Use
