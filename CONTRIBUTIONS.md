@@ -57,8 +57,26 @@ Merged pull request #10, #11, #13, #14, #17, #18, #22, #25
 ---
 ## M3
 ### Melissa Paredes ( @mparedes023 )
+- Item 2: Created the Notebook listing page, allowing users to view and edit existing notebook entries and navigate to individual entries and the create page.
+- Item 2: Created the Character Profiles component, displaying all seven museum characters with selectable profile images, employee information, education and character notes.
+- Items 3 and 4: Connected the Notebook listing page to the Express API using the /api/notebook endpoint to retrieve notebook entries through the frontend API rewrite.
+- Item 5: Create and edit forms for the notebook component. Users can create an entry and once it is saved, they can edit it using the edit form.
+- Item 6: Added loading and error states to the Notebook listing page to handle API requests and failed responses.
+- Item 9: Updated CONTRIBUTIONS.md to describe my M3 contributions.
+
+Pull Requests: *36, #40, #42, #45
+Merged Pull Requests: #31, #35, #43, #44, 
 
 ### Eton Miller ( @codenoob1738 )
+- Item 2: Created the Clues listing page and clue details page, allowing users to view all clues and investigate individual clues by ID. Added navigation between clues, gallery location indicators and links to the Clues and Notebook pages.
+- Items 3 and 4: Connected the Next.js frontend to the Express API using the API_ORIGIN environment variable to retrieve clue information.
+- Item 6: Added loading states using React Suspense, error handling for failed API requests, empty-state messages, and not-found.js page for invalid clue IDs.
+- Item 7: Created investigationDashboard.js to display forensic investigation actions and save discovered clues using the shared investigation context.
+- Item 8: Created artworkDetails.js to retrieve and display Art Institute of Chicago artwork information through the Express API, including artwork titles, artists, dates, mediums, and investigation footnotes.
+Item 9: Updated CONTRIBUTIONS.md to document my M3 contributions.
+
+Pull Requests #33, #35, #38, #39
+Merged pull requests #32, #34, #36, #37, #41, #42
 
 ### Stanley Nguyen ( @stanng66 )
 - Item 1: Setup the Next.js project using week 6 the create-next-app command. Plus files and folder structure for web/ folder.
