@@ -57,6 +57,14 @@ Merged pull request #10, #11, #13, #14, #17, #18, #22, #25
 ---
 ## M3
 ### Melissa Paredes ( @mparedes023 )
+- Item 2: Created the Notebook listing page, allowing users to view and edit existing notebook entries and navigate to individual entries and the create page.
+- Item 2: Created the Character Profiles component, displaying all seven museum characters with selectable profile images, employee information, education and character notes.
+- Items 3 and 4: Connected the Notebook listing page to the Express API using the /api/notebook endpoint to retrieve notebook entries through the frontend API rewrite.
+- Item 6: Added loading and error states to the Notebook listing page to handle API requests and failed responses.
+- Item 9: Updated CONTRIBUTIONS.md to describe my M3 contributions.
+
+Pull Requests: *36, #40, #42, #45
+Merged Pull Requests: #31, #35, #43, #44, 
 
 ### Eton Miller ( @codenoob1738 )
 - Item 2: Created the Clues listing page and clue details page, allowing users to view all clues and investigate individual clues by ID. Added navigation between clues, gallery location indicators and links to the Clues and Notebook pages.
