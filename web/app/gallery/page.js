@@ -28,6 +28,7 @@ export default function GalleryPage() {
                         alt="Museum map"
                         width={1200}
                         height={900}
+                        loading="eager"
                     />
                 </div>
             </div>
