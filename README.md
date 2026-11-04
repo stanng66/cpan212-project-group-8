@@ -60,3 +60,7 @@ cpan212-project-group-8
 - If you didn't use any: "No AI tools used."
 
 - If used: list each AI tool used and what you used it for
+
+---
+## Artist Credit
+Thank you to Ladadori on itch.io for the character images. Here is the link: https://ladadori.itch.io/realistic-avatars-for-rpg
