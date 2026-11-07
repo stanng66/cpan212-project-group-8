@@ -1,3 +1,6 @@
+import styles from "../investigation-dashboard/investigationDashboard.module.css";
+import ArtworkImage from "./artworkImage";
+
 export default async function ArtworkDetails({ clue }) {
     const apiUrl = process.env.API_ORIGIN;
 
@@ -21,24 +24,26 @@ export default async function ArtworkDetails({ clue }) {
     }
 
     return (
-        <section className="investigation-panel painting-panel">
-            <h2>{artwork?.title}</h2>
-
+        <section className={`${styles["investigation-panel"]} ${styles["painting-panel"]}`}>
             {artworkError && <p>{artworkError}</p>}
 
             {artwork ? (
-                <div className="painting-content">
-                    <img
-                        src={"/assets/artworks/" + clue.linkedArtworkId + ".jpg"}
-                        alt={artwork.title}
-                        className="investigation-artwork-image"
+                <div className={styles["painting-content"]}>
+                    <h2>{artwork.title}</h2>
+
+                    <ArtworkImage
+                        imageId={artwork.image_id}
+                        artworkId={clue.linkedArtworkId}
+                        title={artwork.title}
+                        apiUrl={apiUrl}
+                        className={styles["investigation-artwork-image"]}
                     />
 
                     <p><strong>Artist:</strong> {artwork.artist_display}</p>
                     <p><strong>Date:</strong> {artwork.date_display}</p>
                     <p><strong>Medium:</strong> {artwork.medium_display}</p>
 
-                    <div className="painting-footnote">
+                    <div className={styles["painting-footnote"]}>
                         <h3>Footnote:</h3>
                         <p>{clue.footnote}</p>
                     </div>
