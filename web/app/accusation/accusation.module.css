@@ -1,0 +1,109 @@
+.employeeBadgeContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.badgeHeader {
+    width:100%;
+    border-radius: 10px 10px 0 0;
+    height: 25px;
+    /* border-bottom: 1px black solid; */
+
+}
+.employeeBadge {
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 330px;
+    width: 250px;
+
+    background-color: #e4e4e5;
+
+    border: 1px solid gray;
+}
+.museumLogo{
+    width: 100px;
+    height: 100px;
+
+    z-index: 1;           
+    pointer-events: none; 
+
+}
+.imageContainer{
+    padding:10px;
+    position: relative;
+    z-index: 2; 
+}
+.badgeImage {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+}
+
+.name,
+.jobTitle,
+.employeeID {
+    text-align: center;
+    
+}
+
+.name {
+
+    font-size:15px;
+}
+
+.jobTitle {
+
+    letter-spacing:0.1px;
+    height: 40px;
+    vertical-align:middle;
+    align-items:center;
+    justify-content:center;
+    display:flex;
+    text-transform: uppercase;
+
+
+}
+
+.department,.exp{
+    font-size:0.8rem;
+    text-align:right;
+    margin-right:10px;
+    text-transform: uppercase;
+
+}
+.department{
+    margin-top:10px;
+}
+
+
+.badgeHeader,
+.imageContainer,
+.name,
+.employeeID,
+.jobTitle,
+.department,
+.exp {
+    position: relative;
+    z-index: 2;
+    font-family: 'JetBrains Mono', monospace;
+
+}
+#finalAccusationButton{
+    font-family: 'JetBrains Mono', monospace;
+    background-color:black;
+    color:white;
+    padding:10px;
+    font-size:20px;
+    justify-content:center;
+    align-items:center;
+    display:flex;
+    
+}
