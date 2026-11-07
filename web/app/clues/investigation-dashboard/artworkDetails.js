@@ -1,4 +1,5 @@
 import styles from "../investigation-dashboard/investigationDashboard.module.css";
+import ArtworkImage from "./artworkImage";
 
 export default async function ArtworkDetails({ clue }) {
     const apiUrl = process.env.API_ORIGIN;
@@ -24,15 +25,17 @@ export default async function ArtworkDetails({ clue }) {
 
     return (
         <section className={`${styles["investigation-panel"]} ${styles["painting-panel"]}`}>
-            <h2>{artwork?.title}</h2>
-
             {artworkError && <p>{artworkError}</p>}
 
             {artwork ? (
                 <div className={styles["painting-content"]}>
-                    <img
-                        src={"/assets/artworks/" + clue.linkedArtworkId + ".jpg"}
-                        alt={artwork.title}
+                    <h2>{artwork.title}</h2>
+
+                    <ArtworkImage
+                        imageId={artwork.image_id}
+                        artworkId={clue.linkedArtworkId}
+                        title={artwork.title}
+                        apiUrl={apiUrl}
                         className={styles["investigation-artwork-image"]}
                     />
 
