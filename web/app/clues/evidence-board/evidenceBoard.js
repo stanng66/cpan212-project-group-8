@@ -1,6 +1,7 @@
 import Link from "next/link";
+import styles from "./evidenceBoard.module.css";
 
-export default async function CluesList() {
+export default async function EvidenceBoard() {
     let clues = [];
     let error = "";
 
@@ -19,7 +20,7 @@ export default async function CluesList() {
     }
 
     return (
-        <div className="clues-page">
+        <div className={styles["clues-page"]}>
             <h1>Investigation Clues</h1>
             <p>Select a clue to view its details.</p>
 
@@ -29,15 +30,15 @@ export default async function CluesList() {
                 <p>No clues available.</p>
             )}
 
-            <div className="clues-grid">
+            <div className={styles["clues-grid"]}>
                 {clues.map((clue) => (
-                    <div className="clue-card" key={clue.id}>
-                        <p className="clue-Number">
+                    <div className={styles["clue-card"]} key={clue.id}>
+                        <p className={styles["clue-number"]}>
                             CLUE #{clue.id}
                         </p>
                         <h2>{clue.title}</h2>
 
-                        <p className="clue-description">
+                        <p className={styles["clue-description"]}>
                             {clue.description}
                         </p>
 
