@@ -71,3 +71,21 @@ export async function searchArtworks(query) {
 
     return fetchAIC("/artworks/search?" + params.toString());
 }
+
+export async function getArtworkImage(imageId) {
+    const url = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`;
+
+    const response = await fetch(url, {
+        headers: {
+            "User-Agent": "Mozilla/5.0",
+            "Accept": "image/*",
+            "Referer": "https://www.artic.edu/"
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error("Could not load artwork image");
+    }
+
+    return response;
+}
