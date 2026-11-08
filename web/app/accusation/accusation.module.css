@@ -1,0 +1,167 @@
+@import url('https://googleapis.com');
+.employeeBadgeContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.badgeHeader {
+    width:100%;
+    border-radius: 10px 10px 0 0;
+    height: 25px;
+    /* border-bottom: 1px black solid; */
+
+}
+.employeeBadge {
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 330px;
+    width: 250px;
+
+    background-color: #f7f7f8;
+
+    border: 1px solid gray;
+}
+.museumLogo{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 30%;
+    height: 30%;
+    background-image:
+    url('/assets/characterImages/museumLogoBold.png');
+    z-index: 1208;           
+    pointer-events: none; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity:0.45;
+    /* gold tint used, ask eton and stanley if they like black or gold */
+    filter: sepia(100%) saturate(550%) hue-rotate(8deg) brightness(90%) contrast(130%) drop-shadow(0px 1px 0px rgba(255, 255, 255, 0.5));
+    mix-blend-mode: multiply;
+}
+.imageContainer{
+    padding:10px;
+    position: relative;
+    z-index: 2; 
+}
+.badgeImage {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+}
+
+.name,
+.jobTitle,
+.employeeID {
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+    
+}
+.employeeID {
+    font-size:13px;
+    margin-bottom:10px;
+}
+.name {
+
+    font-size:18px;
+}
+
+.jobTitle {
+
+    letter-spacing:0.1px;
+    height: 40px;
+    vertical-align:middle;
+    align-items:center;
+    justify-content:center;
+    display:flex;
+    text-transform: uppercase;
+
+
+}
+
+.department,.exp{
+    font-size:0.7rem;
+    text-align:right;
+    margin-right:6px;
+    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+    
+}
+
+.exp{
+    margin-bottom:10px;
+
+}
+
+.badgeHeader,
+.imageContainer,
+.name,
+.employeeID,
+.jobTitle,
+.department,
+.exp {
+    position: relative;
+    z-index: 2;
+    /* font-family: 'JetBrains Mono', monospace; */
+
+}
+#finalAccusationButton{
+    font-family: 'JetBrains Mono', monospace;
+    background-color:black;
+    color:white;
+    padding:10px;
+    font-size:20px;
+    justify-content:center;
+    align-items:center;
+    display:flex;
+    
+}
+
+.badgeFooter {
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  padding: 10px;
+}
+
+.footerRight {
+  text-align: right;
+  display:flex; 
+  flex-direction:column;
+
+}
+
+.barcode {
+  width: 90px;
+  height: 25px;
+  opacity: 0.7;
+  background: repeating-linear-gradient(
+    to right,
+    #1f1f1f 0px, #1f1f1f 2px,
+    transparent 2px, transparent 4px,
+    #1f1f1f 4px, #1f1f1f 5px,
+    transparent 5px, transparent 8px,
+    #1f1f1f 8px, #1f1f1f 11px,
+    transparent 11px, transparent 13px,
+    #1f1f1f 13px, #1f1f1f 14px,
+    transparent 14px, transparent 17px,
+    transparent 11px, transparent 13px,
+    #1f1f1f 13px, #1f1f1f 14px,
+    transparent 14px, transparent 17px,
+    #1f1f1f 8px, #1f1f1f 11px,
+    transparent 11px, transparent 13px,
+    #1f1f1f 13px, #1f1f1f 14px,
+    transparent 14px, transparent 17px,
+    transparent 11px, transparent 13px,
+    #1f1f1f 13px, #1f1f1f 14px,
+    transparent 14px, transparent 17px
+  );
+}
