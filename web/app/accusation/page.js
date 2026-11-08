@@ -20,12 +20,13 @@ export default function AccusationCard() {
                             
                         />
                     </div>
+                    <div className={styles.museumLogo}></div>
                     <div className={styles.name}>
                         {character.name}
                     </div>
 
                     <div className={styles.employeeID}>
-                        {character.employeeID}
+                        ID: {character.employeeID}
                     </div>
 
 
@@ -33,13 +34,16 @@ export default function AccusationCard() {
                     <div className={styles.jobTitle} style={{ backgroundColor: character.borderColor }}>
                         {character.jobTitle}
                     </div>
-
-                    <div className={styles.department}>
-                        DEPT: {character.department}
+                    <div className={styles.badgeFooter}>
+                        <div className={styles.barcode}></div>
+                            <div className={styles.footerRight}>
+                                <div className={styles.department}>
+                                    DEPT: {character.department}
+                                </div>
+                                <div className={styles.exp}>EXP: 05 01 2028</div>
+                            </div>
                     </div>
-                    <div className={styles.exp}>EXP: 05 01 2028</div>
-
-                </div>
+                    </div>
                 
             ))}
             <button id={styles.finalAccusationButton}>ACCUSE</button>
