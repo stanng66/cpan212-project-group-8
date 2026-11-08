@@ -3,6 +3,7 @@ import "./globals.css";
 // import Header from "./components/Header";
 import AppShell from "./components/AppShell";
 import { InvestigationProvider } from "../context/investigationContext";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,9 @@ export default function RootLayout({ children }) {
       <body>
 
         <InvestigationProvider>
-          <AppShell>{children}</AppShell>
+          <Suspense fallback={<div>Loading...</div>}>
+            <AppShell>{children}</AppShell>
+          </Suspense>
         </InvestigationProvider>
 
       </body>

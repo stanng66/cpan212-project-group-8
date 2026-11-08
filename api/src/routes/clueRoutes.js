@@ -6,7 +6,8 @@ import {
     createClue,
     updateClue,
     deleteClue,
-    getArtworkById
+    getArtworkById,
+    getClueArtworkImage
 } from "../controllers/clueController.js";
 
 const router = express.Router();
@@ -17,5 +18,6 @@ router.post("/", createClue);
 router.put("/:id", updateClue);
 router.delete("/:id", deleteClue);
 router.get("/artwork/:id", getArtworkById);
+router.get("/artwork/image/:imageId", getClueArtworkImage);
 
 export default router;

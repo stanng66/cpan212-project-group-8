@@ -7,22 +7,22 @@ export default function HomePage() {
       <section className="home-container">
         <div className="home-topline">
           <span>CASE FILE No. 008</span>
-          <span className="home-sub-text">THE MURDER MYSTERY EXPERIENCE</span>
+          <span className="home-sub-text">A MURDER MYSTERY EXPERIENCE</span>
         </div>
 
         <div className="home-content">
 
           <h1 className="home-title">
-            Project
+            The Curator's
             <br />
-            <span>Title</span>
+            <span>Last Shift</span>
           </h1>
-
-          <p className="home-description">We all have our own mystery. Can you uncover the truth?</p>
+          <p className="home-description">Six suspects. One victim. Countless secrets. <br />Can you uncover the truth?</p>
 
           <div className="home-auth-options">
             <div className="home-auth-login">
               <span>Returning Detective?</span>
+
               <Link href="/login">
                 <button
                   type="button"
@@ -53,7 +53,7 @@ export default function HomePage() {
         </div>
 
        <footer className="home-footer">
-          <span>We all have our own mystery.</span>
+          <span>Trust the evidence, not the stories.</span>
           <span>THE TRUTH IS WAITING.</span>
         </footer>
       </section>

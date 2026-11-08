@@ -1,0 +1,49 @@
+.galleryPage {
+    padding: 2rem;
+}
+
+.pageTitle {
+    margin-bottom: 0.5rem;
+}
+
+.pageDescription {
+    margin-bottom: 2rem;
+}
+
+.galleryCard {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    border: 2px solid #000;
+    padding: 1.5rem;
+    background: #fff;
+}
+
+.galleryList {
+    width: 220px;
+    border-right: 1px solid #999;
+    padding-right: 1rem;
+}
+
+.galleryList h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.galleryList p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.mapContainer {
+    flex: 1;
+}
+
+.mapContainer img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #777;
+}

@@ -1,13 +1,22 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 export default function RegisterForm() {
+    const router = useRouter();
+    const handleRegister = (event) => {
+        event.preventDefault();
+        router.push("/clues");
+    };
+
     return (
         <section className="auth-page">
             <div className="auth-card">
-
                 <h1 className="register-title">
                     Welcome, Detective
                 </h1>
 
-                <form id="registerForm" className="register-form">
+                <form id="registerForm" className="register-form" onSubmit={handleRegister}>
                     <label htmlFor="registerUsername" className="register-username-label">
                         Detective Username
                     </label>
@@ -39,7 +48,7 @@ export default function RegisterForm() {
                 </form>
 
                 <div className="auth-project">
-                    PROJECT TITLE
+                    The Curator's Last Shift
                 </div>
             </div>
         </section>

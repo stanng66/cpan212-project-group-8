@@ -1,4 +1,5 @@
 import { getArtwork } from "../services/artInstitute.js";
+import { getArtworkImage } from "../services/artInstitute.js";
 
 const clues = [
     {
@@ -118,7 +119,7 @@ const clues = [
         locationName: "Gallery 272",
         targetAICGalleryId: 2147478068,
         linkedArtworkId: 109780,
-        linkedSuspectId: 3,
+        linkedSuspectId: 6,
         targetAICAPIMetadataField: "id,title,artist_display,medium_display,description",
     },
     {
@@ -334,4 +335,30 @@ export async function getArtworkById(req, res) {
         });
     }
 }
+
+export async function getClueArtworkImage(req, res) {
+    try {
+        const imageId = req.params.imageId;
+
+        if (imageId.length !== 36) {
+            return res.status(400).json({
+                error: { message: "Invalid image ID" }
+            });
+        }
+
+        const response = await getArtworkImage(imageId);
+        const image = Buffer.from(await response.arrayBuffer());
+
+        res.set("Content-Type", "image/jpeg");
+        res.send(image);
+
+    } catch (error) {
+        console.error(error.message);
+
+        res.status(502).json({
+            error: { message: "Could not load artwork image" }
+        });
+    }
+}
+
 
