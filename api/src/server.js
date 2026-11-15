@@ -3,6 +3,7 @@ import notebookRoutes from "./routes/notebookRoutes.js";
 import clueRoutes from "./routes/clueRoutes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { notFound } from "./middleware/notFound.js";
+import { connectDb } from "./db.js";
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.use("/api/clues", clueRoutes);
 app.use(notFound);
 // Error handler (runs only if an error is thrown)
 app.use(errorHandler);
+
+await connectDb();
 
 const PORT = process.env.PORT ?? 4000;
 app.listen(PORT, () => {
