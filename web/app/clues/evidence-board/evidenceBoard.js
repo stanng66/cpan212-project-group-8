@@ -95,6 +95,7 @@ export default async function EvidenceBoard() {
                                     <span>SUSPECT</span>
                                 </div>
 
+
                                 <div className={styles["suspect-clues"]}>
                                     {clues
                                         .filter(clue =>
@@ -121,25 +122,6 @@ export default async function EvidenceBoard() {
             {!error && clues.length === 0 && (
                 <p>No clues available.</p>
             )}
-
-            <div className={styles["clues-grid"]}>
-                {clues.map((clue) => (
-                    <div className={styles["clue-card"]} key={clue.id}>
-                        <p className={styles["clue-number"]}>
-                            CLUE #{clue.id}
-                        </p>
-                        <h3>{clue.title}</h3>
-
-                        <p className={styles["clue-description"]}>
-                            {clue.description}
-                        </p>
-
-                        <Link href={"/clues/" + clue.id}>
-                            Investigate Clue
-                        </Link>
-                    </div>
-                ))}
-            </div>
         </div>
     );
 }
