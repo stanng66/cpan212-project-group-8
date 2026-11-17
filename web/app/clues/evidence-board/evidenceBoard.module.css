@@ -109,3 +109,67 @@
         font-size: 26px;
     }
 }
+
+/* Victim at the top of the board */
+.victim-section {
+    display: flex;
+    justify-content: center;
+    margin: 35px 0;
+}
+
+/* Six suspects */
+.suspects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    justify-items: center;
+    margin-bottom: 45px;
+}
+
+/* Character photographs */
+.character-card {
+    background-color: #F7F1E8;
+    padding: 10px 10px 15px;
+    width: 160px;
+    text-align: center;
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
+    transform: rotate(-2deg);
+}
+
+.character-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.character-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.character-card p {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #38251B;
+}
+
+.character-card span {
+    font-size: 11px;
+    font-weight: bold;
+    color: #9C2828;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+    .suspects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .character-card {
+        width: 130px;
+    }
+
+    .character-card img {
+        height: 120px;
+    }
+}
