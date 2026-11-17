@@ -21,8 +21,10 @@ export default async function EvidenceBoard() {
 
     return (
         <div className={styles["clues-page"]}>
-            <h1>Investigation Clues</h1>
-            <p>Select a clue to view its details.</p>
+            <h1>Investigation Board</h1>
+
+            <div className={styles["evidence-board"]}>
+            </div>
 
             {error && <p>{error}</p>}
 
@@ -36,7 +38,7 @@ export default async function EvidenceBoard() {
                         <p className={styles["clue-number"]}>
                             CLUE #{clue.id}
                         </p>
-                        <h2>{clue.title}</h2>
+                        <h3>{clue.title}</h3>
 
                         <p className={styles["clue-description"]}>
                             {clue.description}
