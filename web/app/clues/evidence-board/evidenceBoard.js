@@ -56,14 +56,17 @@ export default async function EvidenceBoard() {
                         </p>
                     </div>
 
-                    <div className={styles["character-card"]}>
+                    <Link
+                        href="/characters?characterID=1"
+                        className={`${styles["character-card"]} ${styles["victim-card"]}`}
+                    >
                         <img
                             src="/assets/characterImages/bastien.jpeg"
                             alt="Bastien Moreau"
                         />
                         <p>Bastien Moreau</p>
                         <span>VICTIM - HEAD MUSEUM CURATOR</span>
-                    </div>
+                    </Link>
 
                     <div className={styles["cause-note"]}>
                         <h3>CAUSE OF DEATH</h3>
@@ -119,8 +122,8 @@ export default async function EvidenceBoard() {
                             </div>
                         ))}
                 </div>
-
             </div>
+
             {error && <p>{error}</p>}
 
             {!error && clues.length === 0 && (

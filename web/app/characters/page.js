@@ -1,13 +1,29 @@
-
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './characters.module.css';
 import characters from './characterData';
+import { useSearchParams } from 'next/navigation';
 // b j j a c e m
 
 export default function CharactersCard() {
+    const searchParams = useSearchParams();
+    const characterID = searchParams.get('characterID');
+
     const [selectedCharacter, setSelectedCharacter] = useState(0);
+
+    useEffect(() => {
+        if (characterID) {
+            const index = characters.findIndex(
+                item => item.characterID === Number(characterID)
+            );
+
+            if (index !== -1) {
+                setSelectedCharacter(index);
+            }
+        }
+    }, [characterID]);
+
     const character = characters[selectedCharacter];
 
 
@@ -22,7 +38,7 @@ export default function CharactersCard() {
                         src={character.image}
                         alt={character.name}
                         className={styles.profileImage}
-                        
+
                     />
 
 
@@ -47,11 +63,11 @@ export default function CharactersCard() {
                     {/* fingerprint on the top right of each profile */}
                     {/* <div className={styles.fingerprintTitleContainer}> */}
                     <h6 className={styles.confidential}>CONFIDENTIAL EMPLOYEE RECORD</h6>
-                        <h2>
-                            Musée des Beaux-Arts de l'Éclipse
-                            <br />
-                            | The Eclipse Fine Arts Museum
-                        </h2>
+                    <h2>
+                        Musée des Beaux-Arts de l'Éclipse
+                        <br />
+                        | The Eclipse Fine Arts Museum
+                    </h2>
                     {/* </div> */}
                     <div className={styles.profileDetails}>
                         <p><h3>REPORTS TO </h3>{character.reportsTo}</p>
@@ -82,7 +98,7 @@ export default function CharactersCard() {
                                 ? styles.selectedImage
                                 : styles.characterButton
                         }
-                        style={{ borderColor: item.borderColor }}       
+                        style={{ borderColor: item.borderColor }}
 
                     >
 

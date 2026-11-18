@@ -89,6 +89,19 @@
     transform: translateX(-50%);
 }
 
+/* Character hover effects */
+.character-card {
+    cursor: pointer;
+    text-decoration: none;
+    transition: box-shadow 0.2s;
+}
+
+/* Victim - blue highlight */
+.victim-card:hover {
+    box-shadow: 0 0 0 4px #2878C8,
+        0 0 18px rgba(40, 120, 200, 0.5);
+}
+
 /* Timeline sticky note */
 .timeline-note {
     position: absolute;
@@ -338,13 +351,17 @@
     z-index: 1;
 }
 
+/* Clue hover effect */
+.sticky-note:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 0 0 3px #E0A800,
+        4px 6px 12px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+}
+
 .sticky-note:nth-child(even) {
     background-color: #F8D5B5;
     transform: rotate(3deg);
-}
-
-.sticky-note:hover {
-    transform: rotate(0deg) scale(1.05);
 }
 
 .sticky-note span {
