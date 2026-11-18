@@ -45,40 +45,44 @@ export default async function EvidenceBoard() {
             <div className={styles["evidence-board"]}>
                 <div className={styles["victim-section"]}>
 
-    <div className={styles["timeline-note"]}>
-        <h3>TIMELINE</h3>
-        <p>
-            Bastien was murdered in front of the ticket booth.
-            
-            Triggered alarm, his watch was broken at 2:36 AM. 
-            
-            It must have been broken during the struggle... that must be the time of death.
-        </p>
-    </div>
+                    <div className={styles["timeline-note"]}>
+                        <h3>TIMELINE</h3>
+                        <p>
+                            Bastien was murdered in front of the ticket booth.
 
-    <div className={styles["character-card"]}>
-        <img
-            src="/assets/characterImages/bastien.jpeg"
-            alt="Bastien Moreau"
-        />
-        <p>Bastien Moreau</p>
-        <span>VICTIM - HEAD MUSEUM CURATOR</span>
-    </div>
+                            Triggered alarm, his watch was broken at 2:36 AM.
 
-    <div className={styles["cause-note"]}>
-        <h3>CAUSE OF DEATH</h3>
-        <p>Stabbed to death with a restoration spatula.</p>
-    </div>
+                            It must have been broken during the struggle... that must be the time of death.
+                        </p>
+                    </div>
 
-    <div className={styles["weapon-card"]}>
-        <img
-            src="/assets/murderWeapon.jpeg"
-            alt="Restoration spatula murder weapon"
-        />
-        <p>MURDER WEAPON</p>
-    </div>
+                    <div className={styles["character-card"]}>
+                        <img
+                            src="/assets/characterImages/bastien.jpeg"
+                            alt="Bastien Moreau"
+                        />
+                        <p>Bastien Moreau</p>
+                        <span>VICTIM - HEAD MUSEUM CURATOR</span>
+                    </div>
 
-</div>
+                    <div className={styles["cause-note"]}>
+                        <h3>CAUSE OF DEATH</h3>
+                        <p>Stabbed to death with a restoration spatula.</p>
+                    </div>
+
+                    <div className={styles["weapon-card"]}>
+                        <img
+                            src="/assets/murderWeapon.jpg"
+                            alt="Restoration spatula murder weapon"
+                        />
+                        <p>MURDER WEAPON</p>
+                    </div>
+
+                    <div className={styles["blue-string-left"]}></div>
+                    <div className={styles["blue-string-right"]}></div>
+                    <div className={styles["blue-string-weapon"]}></div>
+
+                </div>
 
                 <div className={styles["suspects-grid"]}>
                     {characters

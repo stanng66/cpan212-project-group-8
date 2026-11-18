@@ -73,19 +73,18 @@
     }
 }
 
-/* Victim at the top of the board */
-
 /* Victim evidence area */
 .victim-section {
     position: relative;
-    height: 550px;
-    margin: 30px 0 60px;
+    height: 520px;
+    max-width: 650px;
+    margin: 30px auto 20px;
 }
 
 /* Victim photograph */
 .victim-section .character-card {
     position: absolute;
-    top: 140px;
+    top: 150px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -94,7 +93,7 @@
 .timeline-note {
     position: absolute;
     top: 20px;
-    left: 20%;
+    left: 0;
     width: 220px;
     padding: 20px;
     background-color: #FFF49A;
@@ -106,8 +105,8 @@
 /* Cause of death sticky note */
 .cause-note {
     position: absolute;
-    top: 10px;
-    right: 20%;
+    top: 20px;
+    right: 0;
     width: 220px;
     padding: 20px;
     background-color: #98F0EF;
@@ -133,8 +132,8 @@
 /* Murder weapon photograph */
 .weapon-card {
     position: absolute;
-    top: 310px;
-    right: 15%;
+    top: 340px;
+    right: -50px;
     width: 180px;
     padding: 10px;
     background-color: #F7F1E8;
@@ -154,6 +153,55 @@
     font-size: 12px;
     font-weight: bold;
     color: #38251B;
+}
+
+/* Timeline to victim */
+.blue-string-left {
+    position: absolute;
+    top: 175px;
+    left: 25%;
+    width: 180px;
+    height: 3px;
+    background-color: #2878C8;
+    transform: rotate(35deg);
+    z-index: 0;
+}
+
+/* Cause of death to victim */
+.blue-string-right {
+    position: absolute;
+    top: 175px;
+    right: 25%;
+    width: 180px;
+    height: 3px;
+    background-color: #2878C8;
+    transform: rotate(-35deg);
+    z-index: 0;
+}
+
+/* Victim to murder weapon */
+.blue-string-weapon {
+    position: absolute;
+    top: 355px;
+    right: 18%;
+    width: 130px;
+    height: 3px;
+    background-color: #2878C8;
+    transform: rotate(25deg);
+    z-index: 0;
+}
+
+.timeline-note,
+.cause-note,
+.weapon-card,
+.victim-section .character-card {
+    z-index: 1;
+}
+
+.blue-string-left,
+.blue-string-right,
+.blue-string-weapon {
+    pointer-events: none;
 }
 
 @media (max-width: 700px) {
