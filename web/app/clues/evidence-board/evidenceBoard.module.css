@@ -265,6 +265,14 @@
     text-align: center;
     box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
     transform: rotate(-2deg);
+    cursor: pointer;
+    text-decoration: none;
+    transition: box-shadow 0.2s;
+}
+
+.suspect-card:hover {
+    box-shadow: 0 0 0 4px #C62828,
+                0 0 18px rgba(198, 40, 40, 0.5);
 }
 
 .character-card:nth-child(even) {

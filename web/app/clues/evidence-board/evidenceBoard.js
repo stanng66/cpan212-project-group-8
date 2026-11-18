@@ -93,15 +93,17 @@ export default async function EvidenceBoard() {
                         .map(character => (
                             <div className={styles["suspect-section"]} key={character.id}>
 
-                                <div className={styles["character-card"]}>
+                                <Link
+                                href={"/characters?characterID=" + character.id}
+                                className={`${styles["character-card"]} ${styles["suspect-card"]}`}
+                                >
                                     <img
                                         src={"/assets/characterImages/" + character.image}
                                         alt={character.name}
                                     />
                                     <p>{character.name}</p>
                                     <span>SUSPECT</span>
-                                </div>
-
+                               </Link>
 
                                 <div className={styles["suspect-clues"]}>
                                     {clues
@@ -121,14 +123,16 @@ export default async function EvidenceBoard() {
                                 </div>
                             </div>
                         ))}
-                </div>
             </div>
-
-            {error && <p>{error}</p>}
-
-            {!error && clues.length === 0 && (
-                <p>No clues available.</p>
-            )}
         </div>
+
+            { error && <p>{error}</p> }
+
+    {
+        !error && clues.length === 0 && (
+            <p>No clues available.</p>
+        )
+    }
+        </div >
     );
 }
