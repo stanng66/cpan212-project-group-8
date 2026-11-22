@@ -83,7 +83,7 @@ export async function getClueById(req, res) {
 
         const clue = await Clue.findOne({
             id: Number(id)
-        });
+        }).populate("character");
 
         if (!clue) {
             return res.status(404).json({
