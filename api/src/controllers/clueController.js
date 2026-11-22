@@ -1,5 +1,60 @@
 import { getArtwork } from "../services/artInstitute.js";
 import { getArtworkImage } from "../services/artInstitute.js";
+import Clue from "../models/Clue.js";
+
+// Check if the clue ID is a valid positive integer //
+function validId(id) {
+    const number = Number(id);
+
+    return Number.isSafeInteger(number) && number > 0;
+}
+
+// Handle MongoDB errors //
+function clueError(res, error) {
+    if (error.name === "ValidationError") {
+        const details = [];
+
+        for (const field in error.errors) {
+            details.push({
+                field: field,
+                message: error.errors[field].message
+            });
+        }
+
+        return res.status(400).json({
+            error: {
+                message: "Invalid clue data",
+                details: details
+            }
+        });
+    }
+
+    if (error.name === "CastError") {
+        return res.status(400).json({
+            error: {
+                message: "Invalid clue data",
+                details: [{
+                    field: error.path,
+                    message: error.message
+                }]
+            }
+        });
+    }
+
+    if (error.code === 11000) {
+        return res.status(400).json({
+            error: {
+                message: "Clue ID already exists"
+            }
+        });
+    }
+
+    console.error(error.message);
+
+    return res.status(500).json({
+        error: { message: "Server error" }
+    });
+}
 
 const clues = [
     {
@@ -148,11 +203,18 @@ const clues = [
     },
 ]
 
-export function getClues(req, res) {
-    res.json({
-        count: clues.length,
-        data: clues
-    });
+// Get all clues from MongoDB //
+export async function getClues(req, res) {
+    try {
+        const clues = await Clue.find().sort({ id: 1 });
+
+        res.json({
+            count: clues.length,
+            data: clues
+        });
+    } catch (error) {
+        clueError(res, error);
+    }
 }
 
 export function getClueById(req, res) {
