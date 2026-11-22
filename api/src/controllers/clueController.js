@@ -217,24 +217,32 @@ export async function getClues(req, res) {
     }
 }
 
-export function getClueById(req, res) {
-    const id = Number(req.params.id);
+// Get one clue from MongoDB //
+export async function getClueById(req, res) {
+    try {
+        const id = req.params.id;
 
-    const clue = clues.find(function (item) {
-        return item.id === id;
-    });
+        if (!validId(id)) {
+            return res.status(404).json({
+                error: { message: "Clue not found" }
+            });
+        }
 
-    if (!clue) {
-        return res.status(404).json({
-            error: {
-                message: "Clue not found"
-            }
+        const clue = await Clue.findOne({
+            id: Number(id)
         });
+
+        if (!clue) {
+            return res.status(404).json({
+                error: { message: "Clue not found" }
+            });
+        }
+
+        res.json(clue);
+    } catch (error) {
+        clueError(res, error);
     }
-
-    res.json(clue);
 }
-
 
 function verifyClue(clue) {
     const errors = [];
