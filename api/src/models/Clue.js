@@ -67,6 +67,11 @@ const clueSchema = new mongoose.Schema({
         max: 7
     },
 
+    character: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Character"
+    },
+
     targetAICAPIMetadataField: {
         type: String,
         required: true,
