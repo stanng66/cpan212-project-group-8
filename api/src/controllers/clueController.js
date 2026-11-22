@@ -244,47 +244,6 @@ export async function getClueById(req, res) {
     }
 }
 
-function verifyClue(clue) {
-    const errors = [];
-
-    if (!clue || typeof clue !== "object" || Array.isArray(clue)) {
-        return ["Request body must be an object"];
-    }
-
-    if (typeof clue.title !== "string" || clue.title.trim() === "") {
-        errors.push("title is required");
-    }
-
-    if (typeof clue.forensicAction !== "string" ||
-        clue.forensicAction.trim() === "") {
-        errors.push("forensicAction is required");
-    }
-
-    if (typeof clue.description !== "string" ||
-        clue.description.trim() === "") {
-        errors.push("description is required");
-    }
-
-    if (!Number.isInteger(clue.targetAICGalleryId)) {
-        errors.push("targetAICGalleryId must be an integer");
-    }
-
-    if (!Number.isInteger(clue.linkedArtworkId)) {
-        errors.push("linkedArtworkId must be an integer");
-    }
-
-    if (!Number.isInteger(clue.linkedSuspectId)) {
-        errors.push("linkedSuspectId must be an integer");
-    }
-
-    if (typeof clue.targetAICAPIMetadataField !== "string" ||
-        clue.targetAICAPIMetadataField.trim() === "") {
-        errors.push("targetAICAPIMetadataField is required");
-    }
-
-    return errors;
-}
-
 // Create a new clue in MongoDB //
 export async function createClue(req, res) {
     try {
@@ -310,39 +269,48 @@ export async function createClue(req, res) {
     }
 }
 
-export function updateClue(req, res) {
-    const id = Number(req.params.id);
+// Update an existing clue in MongoDB //
+export async function updateClue(req, res) {
+    try {
+        const id = req.params.id;
 
-    const index = clues.findIndex(function (clue) {
-        return clue.id === id;
-    });
+        if (!validId(id)) {
+            return res.status(404).json({
+                error: { message: "Clue not found" }
+            });
+        }
 
-    if (!Number.isInteger(id) || index === -1) {
-        return res.status(404).json({
-            error: {
-                message: "Clue not found"
+        if (!req.body || typeof req.body !== "object" ||
+            Array.isArray(req.body)) {
+            return res.status(400).json({
+                error: { message: "Request body must be an object" }
+            });
+        }
+
+        const updates = { ...req.body };
+
+        delete updates.id;
+        delete updates._id;
+
+        const clue = await Clue.findOneAndUpdate(
+            { id: Number(id) },
+            updates,
+            {
+                returnDocument: "after",
+                runValidators: true
             }
-        });
+        );
+
+        if (!clue) {
+            return res.status(404).json({
+                error: { message: "Clue not found" }
+            });
+        }
+
+        res.json(clue);
+    } catch (error) {
+        clueError(res, error);
     }
-
-    const updatedClue = req.body;
-    const errors = verifyClue(updatedClue);
-
-    if (errors.length > 0) {
-        return res.status(400).json({
-            error: {
-                message: "Invalid clue data",
-                details: errors
-            }
-        });
-    }
-
-    clues[index] = {
-        id: id,
-        ...updatedClue
-    };
-
-    res.json(clues[index]);
 }
 
 export function deleteClue(req, res) {
