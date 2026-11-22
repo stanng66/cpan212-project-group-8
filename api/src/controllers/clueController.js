@@ -285,35 +285,29 @@ function verifyClue(clue) {
     return errors;
 }
 
-export function createClue(req, res) {
-    const newClue = req.body;
-    const errors = verifyClue(newClue);
-
-    if (errors.length > 0) {
-        return res.status(400).json({
-            error: {
-                message: "Invalid clue data",
-                details: errors
-            }
-        });
-    }
-
-    let newId = 1;
-
-    for (let i = 0; i < clues.length; i++) {
-        if (clues[i].id >= newId) {
-            newId = clues[i].id + 1;
+// Create a new clue in MongoDB //
+export async function createClue(req, res) {
+    try {
+        if (!req.body || typeof req.body !== "object" ||
+            Array.isArray(req.body)) {
+            return res.status(400).json({
+                error: { message: "Request body must be an object" }
+            });
         }
+
+        const lastClue = await Clue.findOne().sort({ id: -1 });
+
+        const newId = lastClue ? lastClue.id + 1 : 1;
+
+        const clue = await Clue.create({
+            ...req.body,
+            id: newId
+        });
+
+        res.status(201).json(clue);
+    } catch (error) {
+        clueError(res, error);
     }
-
-    const clue = {
-        id: newId,
-        ...newClue
-    };
-
-    clues.push(clue);
-
-    res.status(201).json(clue);
 }
 
 export function updateClue(req, res) {
