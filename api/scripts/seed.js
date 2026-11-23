@@ -246,12 +246,12 @@ const sampleNotebookEntries = [
     {
         location: "Gallery 102",
         title: "Julian Croft Background",
-        contet: "Recent internal flags were raised regarding unverified acquisition paperwork. Julian Croft has repeatedly clashed with Bastien Moreau over administrative authority boundaries."
+        content: "Recent internal flags were raised regarding unverified acquisition paperwork. Julian Croft has repeatedly clashed with Bastien Moreau over administrative authority boundaries."
     },
     {
         location: "Gallery 102",
         title: "Marcus Brennan Profile",
-        contet: "Marcus Brennan manages digital archives and collection databases. He has extensive knowledge of security systems and was involved in disagreements with Bastien Moreau over missing documentation."
+        content: "Marcus Brennan manages digital archives and collection databases. He has extensive knowledge of security systems and was involved in disagreements with Bastien Moreau over missing documentation."
     }
 ];
 

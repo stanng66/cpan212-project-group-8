@@ -77,8 +77,15 @@ cpan212-project-group-8
 2. Navigate to the `api` folder, using cd api.
 3. Install dependencies, using npm install.
 4. cp .env.example .env (copy '.env.example' to '.env') (optional)
-5. Start the server in development mode, using npm run dev
-6. The API will run on http://localhost:4000
+5. Open the .env file and set: MONGODB_URI=your_mongodb_connection_string (the API will not start if MONGODB_URI is missing)
+6. Start the server in development mode, using npm run dev
+7. The API will run on http://localhost:4000
+
+---
+## How to run the seed 
+1. Ensure project inclueds a seed script that recreates the sample MongoDB data.
+2. cd api (navigate to the API folder)
+3. npm run seed (runs the seed) 
 
 ---
 ## Environment variables
@@ -86,6 +93,7 @@ cpan212-project-group-8
 |-----------|---------|------------------|
 | PORT | 3000 | Port the next.js runs on |
 | PORT | 4000 | Port the API runs on |
+| MONGODB_URI | MongoDB Atlas connection string | String used by Mongoose to connect to the MongoDB Atlas database |
 
 ---
 ## AI Use
