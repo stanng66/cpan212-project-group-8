@@ -242,6 +242,16 @@ const sampleNotebookEntries = [
         location: "Gallery 102",
         title: "Initial Suspects",
         content: "Six people were still inside the museum when police arrived. Each had access to the museum and may have had a reason to clash with Bastien Moreau."
+    },
+    {
+        location: "Gallery 102",
+        title: "Julian Croft Background",
+        contet: "Recent internal flags were raised regarding unverified acquisition paperwork. Julian Croft has repeatedly clashed with Bastien Moreau over administrative authority boundaries."
+    },
+    {
+        location: "Gallery 102",
+        title: "Marcus Brennan Profile",
+        contet: "Marcus Brennan manages digital archives and collection databases. He has extensive knowledge of security systems and was involved in disagreements with Bastien Moreau over missing documentation."
     }
 ];
 
