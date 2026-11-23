@@ -91,7 +91,19 @@ Merged pull request #33, #38, #39, #40
 
 --- 
 ## M4
+### Melissa Paredes ( @mparedes023 )
+- 
 
+### Eton Miller ( @codenoob1738 )
+- 
+
+### Stanley Nguyen ( @stanng66 )
+- Item 1: Installed and configure Mongoose for the API. Created db.js, connected MongoDB atlas using MONGODB_URI, enabled mongoose.set("sanitizeFilter", true), and updated .env.example with a sample connection string. Updated server.js to connect to MongoDB before app.listen() and added handling for missing MONGODB_URI values.
+- Item 7: Created scripts/seed.js and added Character, Clue, and Notebook seed data. Populated the database with sample data using insertMany() and verified npm run seed successfully recreates the MongoDB collections. 
+- Item 8: Write my M4 contributions in CONTRIBUTIONS.MD, and add step on how to set MONGODB_URI and how to run the seed in the root README.md
+
+Pull Request #52, #56  
+Merged pull request #54
 
 --- 
 ## M5
