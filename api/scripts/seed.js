@@ -1,10 +1,12 @@
 import mongoose from 'mongoose';
 import { connectDb } from '../src/db.js';
-// Uncomment when clues and notebooks are ready
 import Character from "../src/models/Character.js";
 import Clue from "../src/models/Clue.js";
-// import Notebook from "../";
+import Notebook from "../src/models/Notebook.js";
 
+// ====================
+// Character data
+// ====================
 const sampleCharacters = [
     {
         characterID: 1,
@@ -48,9 +50,13 @@ console.log("Seed script started.");  // temporary place holders
 
 await Character.deleteMany({});
 await Clue.deleteMany({});
+await Notebook.deleteMany({});
 const insertedCharacters = await Character.insertMany(sampleCharacters);
 console.log("Inserted " + insertedCharacters.length + " characters");
 
+// ====================
+// Clues data
+// ====================
 const sampleClues = [
     {
         id: 1,
@@ -212,6 +218,35 @@ const sampleClues = [
 
 const insertedClues = await Clue.insertMany(sampleClues);
 console.log("Inserted " + insertedClues.length + " clues");
+
+// ====================
+// Notebook data
+// ====================
+const sampleNotebookEntries = [
+    {
+        location: "Gallery 102",
+        title: "Body Found",
+        content: "Bloody footprints found moving away from Gallery 101, leading to the ticket booth at the entrance of the museum. The body was found at 3:21am by James Donavan, Night-Shift Security Supervisor."
+    },
+    {
+        location: "Gallery 102",
+        title: "Victim Details",
+        content: "Bastien Moreau was stabbed to death with a restoration spatula. Victim's watch was damaged in attempts to run away from his attacker. Time of death revealed to be 1:47am."
+    },
+    {
+        location: "Gallery 102",
+        title: "Bloody Prints on the Security Keypad",
+        content: "Bastien Moreau entered the security passcode on the keypad in the ticket booth and activated the emergency lockdown, sealing all exits and trapping the murderer inside the museum. Security footage from the cameras monitoring the exits showed no one leaving the premises around 1:47am. However, all cameras inside the museum had been disconnected, leaving investigators without footage of the galleries, hallways, or the crime scene itself."
+    },
+    {
+        location: "Gallery 102",
+        title: "Initial Suspects",
+        content: "Six people were still inside the museum when police arrived. Each had access to the museum and may have had a reason to clash with Bastien Moreau."
+    }
+];
+
+const insertedNotebookEntries = await Notebook.insertMany(sampleNotebookEntries);
+console.log("Inserted " + insertedNotebookEntries.length + " notebook entries");
 
 // Close the connection, or the script never ends.
 await mongoose.disconnect();
