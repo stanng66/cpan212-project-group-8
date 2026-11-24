@@ -92,7 +92,15 @@ Merged pull request #33, #38, #39, #40
 --- 
 ## M4
 ### Melissa Paredes ( @mparedes023 )
-- 
+- Item 2: Created the Mongoose Notebook model with required field validation for notebook entries. Replaced the in-memory notebook array with MongoDB and updated all five CRUD operations
+- Item 3: Connected the Notebook model with an `ObjectId` ref and used `.populate()` so the related info comes back in the API responses
+- Item 4: Added `400` validation errors (with field details) and `404` errors for bad or missing IDs, and made sure they show up in the create/edit forms
+- Item 5: Added filtering, allowlisted sorting, pagination, total/page counts, and escaped regex search to the notebook list route
+- Item 6: Built the filter, sort, and page controls on the notebook list page so they update the URL and stay put on refresh
+- Item 8: Added my contributions to CONTRIBUTIONS.md
+
+Pull Request #55, #59
+Merged pull request #53, #56
 
 ### Eton Miller ( @codenoob1738 )
 - Item 2: Created the Mongoose Clue model with required field validation, length restrictions, enum values, and numeric limits. Replaced the in-memory clue array with MongoDB and updated all five CRUD operations.

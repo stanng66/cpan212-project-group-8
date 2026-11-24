@@ -1,0 +1,276 @@
+/* notebook container */
+.notebookPage {
+    min-height: 65vh;
+    background-color: #FEFFF4;
+    color: #000000;
+    border: 4px black solid;
+    box-shadow: 0 4px 80px rgba(0, 0, 0, 0.219);
+    display:flex;
+    flex-direction:row;
+    width:65vw;
+  border-radius:30px;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.pageLine {
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    #c8bfb0,
+    #9e9484 50%,
+    #c8bfb0
+  );
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.rightPage form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+}
+.leftPage{
+            position: relative; 
+    overflow: hidden; 
+    
+    flex:1;
+    display:flex;
+    border-radius:10px;
+    flex-direction:column;
+        box-shadow: inset -14px 0 22px -12px rgba(60, 45, 30, 0.2);
+}
+.rightPage{
+    
+    flex:1;
+    border-radius:10px;
+
+    display:flex;
+    flex-direction:column;
+        box-shadow: inset -14px 0 22px -12px rgba(60, 45, 30, 0.2);
+}
+.museumLogo{
+        position: absolute;
+    bottom: 10px;       
+    right: 20px;        
+    width: 35%;  
+    aspect-ratio: 1 / 1;
+    max-width: 180px; 
+    background-image:
+    url('/assets/characterImages/museumLogoBold.png');
+    z-index: 1208;           
+    pointer-events: none; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity:0.45;
+    
+    mix-blend-mode: multiply;
+}
+/* entries styling*/
+.title {
+    font-size: 30px;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+    margin-top:20px;
+    margin-left:20px;
+    line-height:1;
+    font-weight:900;
+
+    font-family: var(--font-caveat), cursive;
+
+}
+.textSpace textarea{
+    font-size: 38px;
+    background-color:transparent;
+    color: #2310b1;
+    border:transparent;
+    outline:none;
+    padding: 12px;
+    font-weight:900;
+padding:10px;
+    font-family: var(--font-reenie-beanie), cursive;
+  width: 100%;
+  flex: 1;
+  resize: none;
+  box-sizing: border-box;
+  line-height: 46px;
+  background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 45px,
+
+
+        rgba(35, 16, 177, 0.305) 45px,
+        rgba(35, 16, 177, 0.14) 46px
+    );
+
+    background-size: 100% 46px;
+    background-attachment: local;
+}
+.description {
+    color: #030303;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-family: var(--font-caveat), cursive;
+    font-size:22px;
+
+}
+.notebookLeftContainer{
+
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+.notebookEntries {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+
+}
+.notebookRightContainer{
+    padding:50px;
+    width:25vw;
+border-right:1px solid black;
+    box-shadow: inset -14px 0 22px -10px rgba(60, 45, 30, 0.22);
+}
+.notebookEntry {
+    height:400px;
+    padding: 30px;
+    gap:20px;
+    border: 1px solid #d8cbb8;
+    
+
+}
+
+.titleLocationContainer{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin-left:30px;
+    margin-top:30px;
+    
+}
+.location {
+    color: rgb(248, 255, 211);
+    padding: 5px;
+    font-family: var(--font-caveat), cursive;
+
+
+    background-color:black;
+}
+.notebookEntry h2 {
+    font-family: var(--font-caveat), cursive;
+    font-size:30px;
+    margin-bottom: 12px;
+    background-color:rgba(255, 255, 0, 0.171);
+
+}
+
+.notebookEntry p {
+    line-height: 1.2;
+    margin-bottom: 18px;
+    letter-spacing:  0em;
+    font-family: var(--font-caveat), cursive;
+    font-size:24px;
+    white-space: pre-line;
+}
+
+
+
+
+
+.notebookEntry a:hover {
+    text-decoration: underline;
+}
+
+/* buttons */
+.submitButton{
+    margin-top:20px;
+    align-self:flex-end;
+    align-items:right;
+    color: rgb(0, 0, 0);
+    padding: 12px 20px;
+    border:none;
+    text-decoration: none;
+    height: 45px;
+    width:fit-content;
+    font-family: var(--font-caveat), cursive;
+    font-size:20px;
+    text-align:right;
+    font-weight:900;
+background-color:transparent;
+cursor:pointer;
+}
+
+.submitButton:hover{
+    text-decoration:underline;
+    color:red;
+}
+
+/* .viewEntry{
+    display: flex;
+    justify-content: flex-end;
+    font-family: var(--font-winston);
+
+} */
+
+/* create notebook entry form styling */
+.titleInput {
+    background-color:transparent;
+    color: #df0808;
+    border: none;
+
+    font-weight:900;
+    margin-top:10px;
+    font-family: var(--font-caveat), cursive;
+    font-size: 40px;
+    width: 100%;
+    margin-left:30px;
+}
+
+.titleInput:focus {
+    outline: none;
+}
+
+.titleLocation{
+    margin-top:11px;
+    font-weight:900;
+}
+.locationOptions{
+    font-family: var(--font-caveat), cursive;
+    accent-color: #2310b1;
+    font-size:1.5rem;
+    display:flex;
+    flex-direction: column;
+    margin-top:5px
+
+}
+.locationOptions label{
+    margin-left:60px;
+    margin-top:10px;
+    font-size:35px;
+}
+.textSpace{
+    display:flex;
+    flex-direction: column;
+    margin-left:20px;
+}
+.entryTitle{
+    font-family: var(--font-caveat), cursive;
+    text-align:center;
+
+    font-weight:900;
+    font-size:30px;
+    margin-top:30px;
+}
+
+.editDeleteContainer{
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    gap:5px;
+    
+}
