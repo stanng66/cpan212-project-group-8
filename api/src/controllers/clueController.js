@@ -1,6 +1,7 @@
 import { getArtwork } from "../services/artInstitute.js";
 import { getArtworkImage } from "../services/artInstitute.js";
 import Clue from "../models/Clue.js";
+import Character from "../models/Character.js";
 
 // Check if the clue ID is a valid positive integer //
 function validId(id) {
@@ -107,6 +108,23 @@ export async function createClue(req, res) {
             });
         }
 
+        const character = await Character.findOne({
+            characterID: req.body.linkedSuspectId
+        });
+
+        if (!character) {
+            return res.status(400).json({
+                error: {
+                    message: "Invalid clue data",
+                    details: [{
+                        field: "linkedSuspectId",
+                        message: "Character not found"
+                    }]
+                }
+            });
+        }
+
+
         const lastClue = await Clue.findOne().sort({ id: -1 });
 
         const newId = lastClue ? lastClue.id + 1 : 1;
@@ -140,10 +158,41 @@ export async function updateClue(req, res) {
             });
         }
 
+        const existingClue = await Clue.findOne({
+            id: Number(id)
+        });
+
+        if (!existingClue) {
+            return res.status(404).json({
+                error: { message: "Clue not found" }
+            });
+        }
+
         const updates = { ...req.body };
 
         delete updates.id;
         delete updates._id;
+        delete updates.character;
+
+        if (updates.linkedSuspectId !== undefined) {
+            const character = await Character.findOne({
+                characterID: updates.linkedSuspectId
+            });
+
+            if (!character) {
+                return res.status(400).json({
+                    error: {
+                        message: "Invalid clue data",
+                        details: [{
+                            field: "linkedSuspectId",
+                            message: "Character not found"
+                        }]
+                    }
+                });
+            }
+
+            updates.character = character._id;
+        }
 
         const clue = await Clue.findOneAndUpdate(
             { id: Number(id) },
