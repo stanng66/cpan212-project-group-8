@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import styles from '../notebook.module.css';
+import styles from '../createNote.module.css';
 
 export default function CreateNotebookPage() {
     const router = useRouter();
@@ -54,17 +54,15 @@ export default function CreateNotebookPage() {
 
     return (
         <div className={styles.notebookPage}>
-
-
-            <form onSubmit={submit}>
-
+<div className={styles.leftPage}>
                 <div className={styles.titleLocationContainer}>
 
                     <div>
-                        <h2 className={styles.title}>Title</h2>
+                        
 
                         <input
-                            placeholder="Enter Title"
+                        className={styles.titleInput}
+                            placeholder="Enter Title Here"
                             id="title"
                             type="text"
                             value={title}
@@ -126,10 +124,19 @@ export default function CreateNotebookPage() {
                         </div>
                     </div>
 
+
+
+                </div>
+</div>
+<div className={styles.pageLine}></div>
+<div className={styles.rightPage}>
+
+                <form onSubmit={submit}>
+
                     <div className={styles.textSpace}>
                         <h1 className={styles.entryTitle}>Detective Notebook</h1>
 
-                        <textarea rows="30" cols="120"
+                        <textarea rows="13" cols="60"
                             id="content"
                             value={content}
                             onChange={(event) => setContent(event.target.value)}
@@ -138,14 +145,14 @@ export default function CreateNotebookPage() {
                         />
                     </div>
 
-                </div>
-
             {error && <p>{error}</p>}
-
-            <button className={styles.submitButton} type="submit" disabled={loading}>
+                            <button className={styles.submitButton} type="submit" disabled={loading}>
                 {loading ? 'Saving To Notebook...' : '+ Add Note to Notebook '}
             </button>
             </form>
+</div>
+
+
 
         </div>
     );
