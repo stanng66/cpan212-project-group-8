@@ -108,6 +108,23 @@ export async function createClue(req, res) {
             });
         }
 
+        const character = await Character.findOne({
+            characterID: req.body.linkedSuspectId
+        });
+
+        if (!character) {
+            return res.status(400).json({
+                error: {
+                    message: "Invalid clue data",
+                    details: [{
+                        field: "linkedSuspectId",
+                        message: "Character not found"
+                    }]
+                }
+            });
+        }
+
+
         const lastClue = await Clue.findOne().sort({ id: -1 });
 
         const newId = lastClue ? lastClue.id + 1 : 1;
