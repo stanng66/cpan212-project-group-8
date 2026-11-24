@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 
-import styles from '../../notebook.module.css';
+import styles from '../../editNote.module.css';
 
 export default function EditNotebookPage() {
     const router = useRouter();
@@ -89,20 +89,16 @@ export default function EditNotebookPage() {
 
     return (
         <div className={styles.notebookPage}>
-            <h1 className={styles.title}>Edit Notebook Entry</h1>
-
-            <p className={styles.description}>
-                Update the details of your investigation notes.
-            </p>
+            <div className={styles.leftPage}>
 
             <form onSubmit={submit}>
 
                 <div className={styles.titleLocationContainer}>
 
                     <div>
-                        <h2 className={styles.title}>Title</h2>
 
-                        <input
+                        <textarea
+                        className={styles.editTitle}
                             id="title"
                             type="text"
                             value={title}
@@ -161,26 +157,40 @@ export default function EditNotebookPage() {
                             
 
                         </div>
+
                     </div>
+
+                </div>
+
+                {error && <p>{error}</p>}
+                        <div className={styles.museumLogo}></div>
+
+            </form>
+
+            </div>
+
+
+            <div className={styles.pageLine}></div>
+            <div className={styles.rightPage}>
+
 
                     <div className={styles.textSpace}> 
                         <h1 className={styles.entryTitle}>Notebook</h1>
 
-                        <textarea  rows="30" cols="120"
+                        <textarea  rows="13" cols="60"
                             id="content"
                             value={content}
                             onChange={(event) => setContent(event.target.value)}
                             required
                         />
-                    </div>
-                </div>
-
-                {error && <p>{error}</p>}
-
                 <button className={styles.submitButton} type="submit">
                     Save Changes
                 </button>
-            </form>
+                    </div>
+                
+            </div>
         </div>
+
+        
     );
 }
