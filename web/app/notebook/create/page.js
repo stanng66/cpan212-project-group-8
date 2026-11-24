@@ -60,7 +60,7 @@ export default function CreateNotebookPage() {
                     <div>
                         
 
-                        <input
+                        <textarea
                         className={styles.titleInput}
                             placeholder="Enter Title Here"
                             id="title"
@@ -118,6 +118,7 @@ export default function CreateNotebookPage() {
                                     />
                                     Gallery 272
                                 </label>
+
                             </div>
                             
 
