@@ -68,7 +68,7 @@ const sampleClues = [
         targetAICGalleryId: 2147480090,
         linkedArtworkId: 21533,
         linkedSuspectId: 3,
-        character: insertedCharacters[1]._id,
+        character: insertedCharacters[2]._id,
         targetAICAPIMetadataField: "id,title,artist_display,style_title"
     },
     {
@@ -120,7 +120,7 @@ const sampleClues = [
         targetAICGalleryId: 26131,
         linkedArtworkId: 34351,
         linkedSuspectId: 3,
-        character: insertedCharacters[1]._id,
+        character: insertedCharacters[2]._id,
         targetAICAPIMetadataField: "id,title,artist_display,description"
     },
     {
@@ -185,7 +185,7 @@ const sampleClues = [
         targetAICGalleryId: 2147478068,
         linkedArtworkId: 109780,
         linkedSuspectId: 3,
-        character: insertedCharacters[2]._id,
+        character: insertedCharacters[5]._id,
         targetAICAPIMetadataField: "id,title,artist_display,medium_display,description"
     },
     {
