@@ -173,19 +173,13 @@ function NotebookContent() {
     return (
 
         <div className={styles.notebookPage}>
-            <div className={styles.notebookWelcomeContainer}>
-            <div className={styles.notebookTitleContainer}>
+            <div className={styles.notebookLeftContainer}>
+            <div className={styles.notebookRightContainer}>
             <h1 className={styles.title}>Detective's Notebook</h1>
 
             <p className={styles.description}>
                 Keep track of your investigation notes and evidence in this notebook.
-            </p>
-        </div>
-            <Link href="/notebook/create" className={styles.createButton}>
-                + Create New Notebook Entry
-            </Link>
-        </div>
-        {/* pagnation controls not styled yet */}
+            </p>   
             <section className={styles.notebookControls} aria-label="Notebook filters">
                 <form className={styles.searchForm} onSubmit={submitSearch}>
                     <label htmlFor="notebook-search">Search entries</label>
@@ -264,7 +258,11 @@ function NotebookContent() {
                 >
                     Clear filters
                 </button>
+            <Link href="/notebook/create" className={styles.createButton}>
+                + Create New Notebook Entry
+            </Link>
             </section>
+             
 
             {!loading && !error && (
     <div className={styles.pagination}>
@@ -294,6 +292,12 @@ function NotebookContent() {
         </button>
     </div>
 )}
+        </div>            
+    
+
+        </div>
+
+
                 {loading ? (
                     <p className={styles.loading}>Loading notebook entries...</p>
                 ) : error ? (
