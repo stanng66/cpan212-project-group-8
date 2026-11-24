@@ -4,7 +4,18 @@ import "./globals.css";
 import AppShell from "./components/AppShell";
 import { InvestigationProvider } from "../context/investigationContext";
 import { Suspense } from "react";
+import { Caveat, Reenie_Beanie } from 'next/font/google';
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-caveat',
+});
 
+const reenieBeanie = Reenie_Beanie({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-reenie-beanie',
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -22,7 +33,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} ${reenieBeanie.variable}`}>
       <body>
 
         <InvestigationProvider>
