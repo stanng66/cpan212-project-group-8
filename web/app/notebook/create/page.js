@@ -122,6 +122,8 @@ export default function CreateNotebookPage() {
                             
 
                         </div>
+                        <div className={styles.museumLogo}></div>
+
                     </div>
 
 
@@ -132,8 +134,8 @@ export default function CreateNotebookPage() {
 <div className={styles.rightPage}>
 
                 <form onSubmit={submit}>
-
                     <div className={styles.textSpace}>
+
                         <h1 className={styles.entryTitle}>Detective Notebook</h1>
 
                         <textarea rows="13" cols="60"
@@ -142,7 +144,9 @@ export default function CreateNotebookPage() {
                             onChange={(event) => setContent(event.target.value)}
                             placeholder="Write your investigation notes here..."
                             required
+                            
                         />
+                    
                     </div>
 
             {error && <p>{error}</p>}

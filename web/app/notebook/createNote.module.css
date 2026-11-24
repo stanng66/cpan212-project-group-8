@@ -31,6 +31,7 @@
 
 }
 .leftPage{
+    
     flex:1;
     display:flex;
     border-radius:10px;
@@ -38,12 +39,30 @@
         box-shadow: inset -14px 0 22px -12px rgba(60, 45, 30, 0.2);
 }
 .rightPage{
+    
     flex:1;
     border-radius:10px;
 
     display:flex;
     flex-direction:column;
         box-shadow: inset -14px 0 22px -12px rgba(60, 45, 30, 0.2);
+}
+.museumLogo{
+        position: relative;
+    top:130px;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    background-image:
+    url('/assets/characterImages/museumLogoBold.png');
+    z-index: 1208;           
+    pointer-events: none; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity:0.45;
+    
+    mix-blend-mode: multiply;
 }
 /* entries styling*/
 .title {
@@ -72,6 +91,19 @@ padding:10px;
   flex: 1;
   resize: none;
   box-sizing: border-box;
+  line-height: 46px;
+  background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 45px,
+
+
+        rgba(35, 16, 177, 0.305) 45px,
+        rgba(35, 16, 177, 0.14) 46px
+    );
+
+    background-size: 100% 46px;
+    background-attachment: local;
 }
 .description {
     color: #030303;
@@ -170,7 +202,10 @@ background-color:transparent;
 cursor:pointer;
 }
 
-
+.submitButton:hover{
+    text-decoration:underline;
+    color:red;
+}
 
 /* .viewEntry{
     display: flex;
@@ -198,12 +233,12 @@ cursor:pointer;
 }
 
 .titleLocation{
-    margin-top:15px;
-
+    margin-top:11px;
+    font-weight:900;
 }
 .locationOptions{
     font-family: var(--font-caveat), cursive;
-
+    accent-color: #2310b1;
     font-size:1.5rem;
     display:flex;
     flex-direction: column;
