@@ -95,7 +95,13 @@ Merged pull request #33, #38, #39, #40
 - 
 
 ### Eton Miller ( @codenoob1738 )
-- 
+- Item 2: Created the Mongoose Clue model with required field validation, length restrictions, enum values, and numeric limits. Replaced the in-memory clue array with MongoDB and updated all five CRUD operations.
+- Item 3: Created the Character model and built a relationship between the Clue and Character models using ObjectId references. Implemented .populate() to retrieve related Character information and maintained Character references when creating and updating clues.
+- Item 4: Implemented error handling for schema validation, invalid clue IDs, missing clues, and duplicate IDs, including field-specific validation messages.
+- Item 8: Updated CONTRIBUTIONS.md to document my M4 contributions.
+
+Pull Request #53, #54
+Merged pull request #52, #55, #57
 
 ### Stanley Nguyen ( @stanng66 )
 - Item 1: Installed and configure Mongoose for the API. Created db.js, connected MongoDB atlas using MONGODB_URI, enabled mongoose.set("sanitizeFilter", true), and updated .env.example with a sample connection string. Updated server.js to connect to MongoDB before app.listen() and added handling for missing MONGODB_URI values.
