@@ -1,6 +1,7 @@
 import { getArtwork } from "../services/artInstitute.js";
 import { getArtworkImage } from "../services/artInstitute.js";
 import Clue from "../models/Clue.js";
+import Character from "../models/Character.js";
 
 // Check if the clue ID is a valid positive integer //
 function validId(id) {
