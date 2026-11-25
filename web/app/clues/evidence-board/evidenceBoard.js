@@ -2,13 +2,13 @@ import Link from "next/link";
 import styles from "./evidenceBoard.module.css";
 
 const characters = [
-    { id: 1, name: "Bastien Moreau", image: "bastien.jpeg", role: "Victim" },
-    { id: 2, name: "Julian Croft", image: "julian.jpeg", role: "Suspect" },
-    { id: 3, name: "James Donavan", image: "james.jpeg", role: "Suspect" },
-    { id: 4, name: "Arthur Boucher", image: "arthur.jpeg", role: "Suspect" },
-    { id: 5, name: "Chloe Sterling", image: "chloe.jpeg", role: "Suspect" },
-    { id: 6, name: "Dr. Elena Rostova", image: "elena.jpeg", role: "Suspect" },
-    { id: 7, name: "Marcus Brennan", image: "marcus.jpeg", role: "Suspect" }
+    { id: 1, name: "Bastien Moreau", image: "bastien.jpeg", role: "Victim",jobTitle:"Head Museum Curator" },
+    { id: 2, name: "Julian Croft", image: "julian.jpeg", role: "Suspect",jobTitle:"Head Museum Registrar" },
+    { id: 3, name: "James Donavan", image: "james.jpeg", role: "Suspect",jobTitle:"Night-Shift Security Supervisor" },
+    { id: 4, name: "Arthur Boucher", image: "arthur.jpeg", role: "Suspect",jobTitle:"Director of Facilities & Operations" },
+    { id: 5, name: "Chloe Sterling", image: "chloe.jpeg", role: "Suspect",jobTitle:"Lead Exhibition Designer" },
+    { id: 6, name: "Dr. Elena Rostova", image: "elena.jpeg", role: "Suspect",jobTitle:"Chief Paintings Conservator" },
+    { id: 7, name: "Marcus Brennan", image: "marcus.jpeg", role: "Suspect",jobTitle:"Digital Collection Manager" }
 ];
 
 const suspectClues = {
@@ -48,11 +48,10 @@ export default async function EvidenceBoard() {
                     <div className={styles["timeline-note"]}>
                         <h3>TIMELINE</h3>
                         <p>
-                            Bastien was murdered in front of the ticket booth.
-
-                            Triggered alarm, his watch was broken at 2:36 AM.
-
-                            It must have been broken during the struggle... that must be the time of death.
+                            On October 23, 2026, Bastien Moreau was murdered in front of the ticket booth. 
+                            He triggered the museum alarm before dying, locking 6 people inside. 
+                            His watch stopped at 2:36 AM—broken during the struggle. 
+                            That puts the time of death at 2:36 AM.
                         </p>
                     </div>
 
@@ -65,7 +64,7 @@ export default async function EvidenceBoard() {
                             alt="Bastien Moreau"
                         />
                         <p>Bastien Moreau</p>
-                        <span>VICTIM - HEAD MUSEUM CURATOR</span>
+                        <span>VICTIM - Head Museum Curator </span>
                     </Link>
 
                     <div className={styles["cause-note"]}>
@@ -86,7 +85,10 @@ export default async function EvidenceBoard() {
                     <div className={styles["blue-string-weapon"]}></div>
 
                 </div>
-
+                    <img className={styles.ferryTicket}
+                        src={"/assets/ferryTicket.png"}
+                        alt="ferry ticket"
+                    />
                 <div className={styles["suspects-grid"]}>
                     {characters
                         .filter(character => character.role === "Suspect")
@@ -97,12 +99,15 @@ export default async function EvidenceBoard() {
                                 href={"/characters?characterID=" + character.id}
                                 className={`${styles["character-card"]} ${styles["suspect-card"]}`}
                                 >
+                                    <div className={styles.suspectTitle}>SUSPECT</div>
                                     <img
                                         src={"/assets/characterImages/" + character.image}
                                         alt={character.name}
                                     />
                                     <p>{character.name}</p>
-                                    <span>SUSPECT</span>
+                                    <h6>{character.jobTitle}</h6>
+                                    
+                                    
                                </Link>
 
                                 <div className={styles["suspect-clues"]}>

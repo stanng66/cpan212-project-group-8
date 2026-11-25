@@ -26,12 +26,13 @@
     min-height: 1100px;
     padding: 30px;
     background-color: #D9B08C;
-    border: 8px solid var(--clr-primary);
-    border-radius: 8px;
+    border: 12px solid rgb(52, 29, 1);
+
     box-shadow:
         inset 0 0 0 3px #F3C477,
         inset 0 0 18px 5px #75462E,
         0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #906d53;
 }
 
 .clue-card:hover {
@@ -41,7 +42,7 @@
 .clue-card h3 {
     font-family: Georgia, serif;
     font-size: 21px;
-    color: #4A291B;
+    color: #131313;
 }
 
 /* Clue Links */
@@ -108,9 +109,11 @@
 }
 
 .victim-section .victim-card span {
-    font-size: 13px;
-    font-family: var(--font-reenie-beanie), cursive;
+    font-size: 16px;
+    font-family: var(--font-caveat), cursive;
     margin-top:-15px;
+    color: rgb(126, 3, 3);
+font-weight:bold;
 
 }
 
@@ -167,7 +170,12 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.153);
 
 }
-
+.timeline-note span{
+    font-size: 20px;
+    line-height: 1.1;
+    font-family: var(--font-caveat), cursive;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.153);
+}
 .timeline-note p,
 .cause-note p {
     font-size: 20px;
@@ -304,11 +312,14 @@
 .character-card {
     position: relative; 
     z-index: 2; 
-    background-color: #F7F1E8;
+
+    background: #f4f1ea; 
+
     padding: 10px 10px 15px;
     width: fit-content;
     text-align: center;
     box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
+    
     transform: rotate(-2deg);
     cursor: pointer;
     text-decoration: none;
@@ -346,7 +357,7 @@
     height: 240px;
     object-fit: cover;
     box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.3);
-
+    border: 1px solid black;
 }
 
 .character-card p {
@@ -361,10 +372,11 @@
 
 }
 
-.character-card span {
+.suspectTitle {
     font-size: 15px;
     font-weight: bold;
-    color: #7a0404;
+    color: #ff0000;
+    text-align:right;
     letter-spacing: 1px;
     font-family: var(--font-reenie-beanie), cursive;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.153);
@@ -405,6 +417,11 @@
 .titleClueNumber{
     display:flex;
     flex-direction:row;
+}
+.suspects-grid h6{
+    font-size:16px;
+    font-family: var(--font-caveat), cursive;
+
 }
 /* Red string connecting to the right clue */
 .suspect-clues::after {
@@ -473,7 +490,16 @@
     font-family: var(--font-caveat), cursive;
 
 }
+/* ferry ticket */
+.ferryTicket{
+    position:absolute;
+    width:250px;
+    height:fit-content;
+    left:45%;
+    transform: rotate(10deg);
 
+
+}
 @media (max-width: 900px) {
     .suspects-grid {
         grid-template-columns: repeat(1, minmax(0, 1fr));
