@@ -78,7 +78,7 @@ export default async function EvidenceBoard() {
                             src="/assets/murderWeapon.jpg"
                             alt="Restoration spatula murder weapon"
                         />
-                        <p>MURDER WEAPON</p>
+                        <p>MURDER WEAPON - RESTORATION SPATULA</p>
                     </div>
 
                     <div className={styles["blue-string-left"]}></div>

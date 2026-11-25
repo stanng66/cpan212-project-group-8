@@ -1,22 +1,27 @@
 /* Clues Page */
 .clues-page {
     width: 100%;
-    max-width: 1200px;
+    max-width: 90vw;
     margin: 0 auto;
     padding: 20px;
     color: var(--clr-text-main);
 }
+/* handwritten fonts 
+    font-family: var(--font-caveat), cursive;
+    font-family: var(--font-reenie-beanie), cursive;
 
+    */
 .clues-page h1 {
-    font-family: Georgia, serif;
-    font-size: 36px;
+    font-family: var(--font-caveat), cursive;
+    font-size: 40px;
     color: var(--clr-primary);
     margin-bottom: 12px;
-    text-align: center;
+    text-align: left;
 }
 
 /* Evidence Board */
 .evidence-board {
+    overflow:hidden;
     width: 100%;
     min-height: 1100px;
     padding: 30px;
@@ -73,7 +78,7 @@
     }
 }
 
-/* Victim evidence area */
+/* victim evidence area */
 .victim-section {
     position: relative;
     height: 520px;
@@ -81,12 +86,32 @@
     margin: 30px auto 20px;
 }
 
-/* Victim photograph */
-.victim-section .character-card {
+/* victim photograph */
+.victim-section .victim-card {
+    width: 320px;
     position: absolute;
     top: 150px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 10%;
+    transform: translateX(-40%) rotate(-2deg);
+    padding: 15px 15px 20px;
+}
+
+.victim-section .victim-card img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border: 1px solid black;
+}
+
+.victim-section .victim-card p {
+    font-size: 32px;
+}
+
+.victim-section .victim-card span {
+    font-size: 13px;
+    font-family: var(--font-reenie-beanie), cursive;
+    margin-top:-15px;
+
 }
 
 /* Character hover effects */
@@ -104,13 +129,16 @@
 
 /* Timeline sticky note */
 .timeline-note {
+    font-family: var(--font-caveat), cursive;
+    min-height: 300px;
+
     position: absolute;
-    top: 20px;
-    left: 0;
-    width: 220px;
+    top: -20px;
+    left: -260px;
+    width: 300px;
     padding: 20px;
     background-color: #FFF49A;
-    color: #38251B;
+    color: #000000;
     transform: rotate(-7deg);
     box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.25);
 }
@@ -119,35 +147,44 @@
 .cause-note {
     position: absolute;
     top: 20px;
-    right: 0;
-    width: 220px;
+    right: 50px;
+    width: 230px;
     padding: 20px;
     background-color: #98F0EF;
     color: #38251B;
     transform: rotate(7deg);
     box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.25);
+    min-height: 250px;
 }
 
 /* Sticky note text */
 .timeline-note h3,
 .cause-note h3 {
-    font-size: 19px;
+    font-size: 20px;
     margin-bottom: 12px;
-    color: #38251B;
+    color: #081238;
+    font-family: var(--font-caveat), cursive;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.153);
+
 }
 
 .timeline-note p,
 .cause-note p {
-    font-size: 14px;
-    line-height: 1.6;
-}
+    font-size: 20px;
+    line-height: 1.1;
+    font-family: var(--font-caveat), cursive;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.153);
 
+}
+.cause-note h3, .cause-note p{
+    color: rgb(126, 3, 3);
+}
 /* Murder weapon photograph */
 .weapon-card {
     position: absolute;
-    top: 340px;
-    right: -50px;
-    width: 180px;
+    top: 200px;
+    right: -300px;
+    width: 400px;
     padding: 10px;
     background-color: #F7F1E8;
     text-align: center;
@@ -156,25 +193,29 @@
 }
 
 .weapon-card img {
-    width: 100%;
-    height: 145px;
+    width: 380px;
+    height: 205px;
     object-fit: cover;
+    border: 1px black solid;
+
 }
 
 .weapon-card p {
+    font-family: var(--font-reenie-beanie), cursive;
+
     margin-top: 8px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #38251B;
+    font-size: 20px;
+    font-weight: 900;
+    color: #000000;
 }
 
 /* Timeline to victim */
 .blue-string-left {
     position: absolute;
     top: 175px;
-    left: 25%;
+    left:20px;;
     width: 180px;
-    height: 3px;
+    height: 8px;
     background-color: #2878C8;
     transform: rotate(35deg);
     z-index: 0;
@@ -184,11 +225,13 @@
 .blue-string-right {
     position: absolute;
     top: 175px;
-    right: 25%;
-    width: 180px;
-    height: 3px;
-    background-color: #2878C8;
-    transform: rotate(-35deg);
+    right: 80px;
+    width: 380px;
+    height: 8px;
+    background-color: #0164c6;
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
+    transform: rotate(-55deg);
+    transform-origin: right center;
     z-index: 0;
 }
 
@@ -196,11 +239,11 @@
 .blue-string-weapon {
     position: absolute;
     top: 355px;
-    right: 18%;
-    width: 130px;
-    height: 3px;
-    background-color: #2878C8;
-    transform: rotate(25deg);
+    right: 20px;
+    width: 280px;
+    height: 8px;
+    background-color: #006cd8;
+    transform: rotate(-25deg);
     z-index: 0;
 }
 
@@ -261,7 +304,7 @@
 .character-card {
     background-color: #F7F1E8;
     padding: 10px 10px 15px;
-    width: 160px;
+    width: fit-content;
     text-align: center;
     box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
     transform: rotate(-2deg);
@@ -281,13 +324,17 @@
 
 .character-card img {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
+    border: 1px black solid;
 }
 
 .character-card p {
+    font-family: var(--font-caveat), cursive;
     margin: 10px 0 5px;
-    font-weight: bold;
+    font-weight: 900;
+    font-size:25px;
+    text-transform:uppercase;
     color: #38251B;
 }
 
