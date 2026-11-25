@@ -116,8 +116,9 @@ export default async function EvidenceBoard() {
                                                 className={styles["sticky-note"]}
                                                 key={clue.id}
                                             >
-                                                <span>CLUE #{clue.id}</span>
-                                                <h3>{clue.title}</h3>
+                                                <div className={styles.titleClueNumber}>
+                                                <span>CLUE #{clue.id}  </span>
+                                                <h3>{clue.title}</h3></div>
                                                 <p>{clue.description}</p>
                                             </Link>
                                         ))}
