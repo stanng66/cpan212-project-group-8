@@ -118,6 +118,7 @@ export default async function EvidenceBoard() {
                                             >
                                                 <span>CLUE #{clue.id}</span>
                                                 <h3>{clue.title}</h3>
+                                                <p>{clue.description}</p>
                                             </Link>
                                         ))}
                                 </div>
