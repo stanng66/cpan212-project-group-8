@@ -12,14 +12,19 @@ const characters = [
 ];
 
 const suspectClues = {
-    2: [4, 9],   // Julian
-    3: [1, 5],   // James
-    4: [8, 11],  // Arthur
-    5: [3, 6],   // Chloe
-    6: [10, 12], // Elena
-    7: [2, 7]    // Marcus
+    2: [4],   // Julian
+    3: [1],   // James
+    4: [8],  // Arthur
+    5: [3],   // Chloe
+    6: [9], // Elena
+    7: [5]    // Marcus
 };
-
+const galleries = [
+    { id: 107, name: "GALLERY 107", clues: [1, 2, 3] },
+    { id: 143, name: "GALLERY 143", clues: [4, 5, 6] },
+    { id: 206, name: "GALLERY 206", clues: [7, 8, 9] },
+    { id: 272, name: "GALLERY 272", clues: [10, 11, 12] }
+];
 export default async function EvidenceBoard() {
     let clues = [];
     let error = "";
@@ -89,48 +94,77 @@ export default async function EvidenceBoard() {
                         src={"/assets/ferryTicket.png"}
                         alt="ferry ticket"
                     />
-                <div className={styles["suspects-grid"]}>
-                    {characters
-                        .filter(character => character.role === "Suspect")
-                        .map(character => (
-                            <div className={styles["suspect-section"]} key={character.id}>
 
-                                <Link
-                                href={"/characters?characterID=" + character.id}
-                                className={`${styles["character-card"]} ${styles["suspect-card"]}`}
-                                >
-                                    <div className={styles.suspectTitle}>SUSPECT</div>
-                                    <img
-                                        src={"/assets/characterImages/" + character.image}
-                                        alt={character.name}
-                                    />
-                                    <p>{character.name}</p>
-                                    <h6>{character.jobTitle}</h6>
-                                    
-                                    
-                               </Link>
+                <div className={styles["gallery-board"]}>
+                    {galleries.map(gallery => {
 
-                                <div className={styles["suspect-clues"]}>
-                                    {clues
-                                        .filter(clue =>
-                                            suspectClues[character.id].includes(Number(clue.id))
-                                        )
-                                        .map(clue => (
-                                            <Link
-                                                href={"/clues/" + clue.id}
-                                                className={styles["sticky-note"]}
-                                                key={clue.id}
-                                            >
-                                                <div className={styles.titleClueNumber}>
-                                                <span>CLUE #{clue.id}  </span>
-                                                <h3>{clue.title}</h3></div>
-                                                <p>{clue.description}</p>
-                                            </Link>
-                                        ))}
-                                </div>
+                        const galleryClues = clues.filter(clue =>
+                            gallery.clues.includes(Number(clue.id))
+                        );
+
+                        const gallerySuspects = characters.filter(character =>
+                            character.role === "Suspect" &&
+                            (suspectClues[character.id] || []).some(clueId =>
+                                gallery.clues.includes(clueId)
+                            )
+                        );
+
+                        return (
+                            <div className={styles["gallery-section"]} key={gallery.id}>
+
+                                <h2 className={styles["gallery-title"]}>
+                                    {gallery.name}
+                                </h2>
+
+                        {/* strings lead to the gallery they were found in */}
+                                <div className={styles["gallery-string-one"]}></div>
+                                <div className={styles["gallery-string-two"]}></div>
+                                <div className={styles["gallery-string-three"]}></div>
+
+                            
+                                {galleryClues.map((clue, index) => (
+                                    <Link
+                                        href={"/clues/" + clue.id}
+                                        className={`${styles["sticky-note"]} ${styles["clue-position-" + index]}`}
+                                        key={clue.id}
+                                    >
+                                        <div className={styles.titleClueNumber}>
+                                            <span>CLUE #{clue.id}</span>
+                                            <h3>{clue.title}</h3>
+                                        </div>
+
+                                        <p>{clue.description}</p>
+                                    </Link>
+                                ))}
+
+                        
+                                {gallerySuspects.map((character, index) => (
+                                    <Link
+                                        href={"/characters?characterID=" + character.id}
+                                        className={`${styles["character-card"]} ${styles["suspect-card"]} ${styles["suspect-position-" + index]}`}
+                                        key={character.id}
+                                    >
+                                        <div className={styles.suspectTitle}>
+                                            SUSPECT
+                                        </div>
+
+                                        <img
+                                            src={"/assets/characterImages/" + character.image}
+                                            alt={character.name}
+                                        />
+
+                                        <p>{character.name}</p>
+                                        <h6>{character.jobTitle}</h6>
+                                    </Link>
+                                ))}
+
                             </div>
-                        ))}
-            </div>
+
+                            
+                        );
+                    })}
+                </div>
+
         </div>
 
             { error && <p>{error}</p> }

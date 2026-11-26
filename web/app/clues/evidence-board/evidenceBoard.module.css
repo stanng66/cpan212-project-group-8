@@ -24,7 +24,7 @@
     overflow:hidden;
     width: 100%;
     min-height: 1100px;
-    padding: 30px;
+    padding: 10px;
     background-color: #D9B08C;
     border: 12px solid rgb(52, 29, 1);
 
@@ -299,14 +299,6 @@ font-weight:bold;
     }
 }
 
-/* Six suspects */
-.suspects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 90px 20px;
-    justify-items: center;
-    margin: 40px 0;
-}
 
 /* Character photographs */
 .character-card {
@@ -315,7 +307,7 @@ font-weight:bold;
 
     background: #f4f1ea; 
 
-    padding: 10px 10px 15px;
+    padding: 5px 5px 15px;
     width: fit-content;
     text-align: center;
     box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
@@ -354,7 +346,7 @@ font-weight:bold;
 
 .character-card img {
     width: 100%;
-    height: 240px;
+    height: 250px;
     object-fit: cover;
     box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.3);
     border: 1px solid black;
@@ -365,7 +357,7 @@ font-weight:bold;
     margin-top: 5px;
     margin-bottom:2px;
     font-weight: 900;
-    font-size:25px;
+    font-size:20px;
     text-transform:uppercase;
     color: #150801;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.153);
@@ -418,7 +410,7 @@ font-weight:bold;
     display:flex;
     flex-direction:row;
 }
-.suspects-grid h6{
+.gallery-board h6{
     font-size:16px;
     font-family: var(--font-caveat), cursive;
 
@@ -445,8 +437,8 @@ font-weight:bold;
     background-color: #c6ffa8;
     color: #0d0d0e;
     width: 170px;
-    min-width:250px;
-    min-height: 200px;
+    min-width:280px;
+    min-height: 250px;
     padding: 2px 5px;
     text-decoration: none;
     text-align: left;
@@ -493,35 +485,185 @@ font-weight:bold;
 /* ferry ticket */
 .ferryTicket{
     position:absolute;
-    width:250px;
+    width:230px;
     height:fit-content;
-    left:45%;
+    left:27%;
+    z-index:5;
     transform: rotate(10deg);
-
-
 }
-@media (max-width: 900px) {
-    .suspects-grid {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap:40px;
-    }
+/* four galleries, 3 rows */
+.gallery-board {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
 }
 
+.gallery-section {
+    position: relative;
+    width: 100%;
+    min-height: 800px;
+    overflow: hidden;
+}
+
+
+.gallery-title {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    background-color: #d6d0c2;
+    color: #333;
+    font-family: var(--font-winston);
+    text-align: center;
+    z-index: 1;
+}
+
+.gallery-section .sticky-note {
+    position: absolute;
+    z-index: 2;
+}
+
+.gallery-section .clue-position-0 {
+    top: 5%;
+    left: 1%;
+}
+
+.gallery-section .clue-position-1 {
+    top: 5%;
+    right: 5%;
+}
+
+.gallery-section .clue-position-2 {
+    bottom: 5%;
+    left: 38%;
+}
+
+.gallery-section .suspect-card {
+    position: absolute;
+    z-index: 2;
+}
+/* james */
+.gallery-section .suspect-position-0 {
+    bottom: 5%;
+    left: 5%;
+}
+/* chloe */
+.gallery-section .suspect-position-1 {
+    bottom: 5%;
+    right: 10%;
+}
+/* marcus */
+.gallery-section .suspect-position-2 {
+    top: 5%;
+    right: 25%;
+}
+
+.gallery-string-one {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 40%;
+    height: 7px;
+    background-color: #a2060c;
+    transform: rotate(22deg);
+    z-index: 0;
+}
+
+.gallery-string-two {
+    position: absolute;
+    top: 55%;
+    left: 42%;
+    width: 15%;
+    height: 7px;
+    background-color: #a51e22;
+    transform: rotate(-90deg);
+    z-index: 0;
+}
+
+.gallery-string-three {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    width: 48%;
+    height: 7px;
+    background-color: #a51e22;
+    transform: rotate(-25deg);
+    z-index: 0;
+}
 @media (max-width: 600px) {
-    .suspects-grid {
-        grid-template-columns: 1fr;
+    .gallery-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 35px;
+        min-height: auto;
+        height: auto;
+        padding: 40px 15px;
+        overflow: visible;
     }
 
-    .character-card {
-        width: 130px;
+    .gallery-section .gallery-title {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        order: -1;
+        margin: 0;
     }
 
-    .character-card img {
-        height: 120px;
+    .gallery-section .sticky-note,
+    .gallery-section .suspect-card {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin: 0;
     }
-    .suspect-clues::before,
-    .suspect-clues::after {
+
+    .gallery-section .sticky-note {
+        width: 90%;
+        min-width: 0;
+        max-width: 280px;
+    }
+
+    .gallery-section .suspect-card {
+        width: 160px;
+    }
+
+    .gallery-section .character-card img {
+        height: 150px;
+    }
+
+    .gallery-section .sticky-note:nth-child(even) {
+        margin-left: 0;
+    }
+
+    .gallery-section .clue-position-0,
+    .gallery-section .clue-position-1,
+    .gallery-section .clue-position-2 {
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+    }
+
+    .gallery-section .suspect-position-0,
+    .gallery-section .suspect-position-1,
+    .gallery-section .suspect-position-2 {
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+    }
+
+    .gallery-string-one,
+    .gallery-string-two,
+    .gallery-string-three {
         display: none;
     }
 }
