@@ -4,7 +4,8 @@ export default function Navigation() {
   return (
     <nav className="navigation">
       <Link href="/">Home</Link>
-      <Link href="/clues">Clues</Link>
+      <Link href="/documents">Case Documents</Link>
+      <Link href="/clues">Investigation Dashboard</Link>
       <Link href="/characters">Character Profiles</Link> 
       <Link href="/notebook">Notebook</Link>
 
